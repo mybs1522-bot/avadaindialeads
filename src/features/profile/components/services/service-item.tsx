@@ -43,10 +43,6 @@ function getLogoColor(title: string) {
   return colors[Math.abs(hash) % colors.length];
 }
 
-function formatAmount(amount: number, currency: string) {
-  if (amount === 0) return "Free";
-  return `${currency}${amount.toLocaleString("en-IN")}`;
-}
 
 export function ServiceItem({ service }: { service: Service }) {
   const [imgError, setImgError] = useState(false);
