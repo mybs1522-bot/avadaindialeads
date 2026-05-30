@@ -217,7 +217,7 @@ export function ProjectsTab() {
             <Button
               onClick={handleAddUrl}
               disabled={!imageUrlInput.trim() || uploading || addingUrl}
-              variant="secondary"
+              variant="outline"
             >
               {addingUrl ? (
                 <Loader2 className="mr-2 size-4 animate-spin" />
