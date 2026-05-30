@@ -92,26 +92,7 @@ export function ServiceItem({ service }: { service: Service }) {
             {service.description}
           </p>
         )}
-        <div className="mt-1.5 flex items-center gap-2 text-xs">
-          {service.payment_link && (
-            <>
-              <span className="text-link underline underline-offset-2">
-                Details
-              </span>
-              <span className="text-muted-foreground">·</span>
-            </>
-          )}
-          <span
-            className={cn(
-              "font-medium",
-              service.amount === 0
-                ? "text-success"
-                : "text-foreground"
-            )}
-          >
-            {formatAmount(service.amount, service.currency)}
-          </span>
-        </div>
+
       </div>
 
       {/* Chevron */}
