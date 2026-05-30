@@ -1,16 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 import { Phone, SendIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { USER } from "@/data/user";
-import { useIsClient } from "@/hooks/use-is-client";
-import { decodeEmail } from "@/utils/string";
-import { supabase } from "@/lib/supabase";
-import { Service } from "@/features/profile/types/services";
 import { ServiceDialog } from "@/features/profile/components/services/service-dialog";
+import { Service } from "@/features/profile/types/services";
+import { useIsClient } from "@/hooks/use-is-client";
+import { supabase } from "@/lib/supabase";
+import { decodeEmail } from "@/utils/string";
 
 export function QuickActions() {
   const isClient = useIsClient();

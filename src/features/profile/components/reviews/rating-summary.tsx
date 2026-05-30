@@ -58,7 +58,7 @@ function StarRow({ count, max = 5 }: { count: number; max?: number }) {
 
 /* ─── Laurel Wreath SVG ─── */
 
-function LaurelWreath({ className }: { className?: string }) {
+function _LaurelWreath({ className }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 120 120"

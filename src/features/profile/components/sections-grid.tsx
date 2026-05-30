@@ -1,9 +1,10 @@
 "use client";
 
 import { BookOpen, Brush, Phone } from "lucide-react";
-import { useState, useRef } from "react";
+import { AnimatePresence,motion } from "motion/react";
+import { useRef,useState } from "react";
+
 import { cn } from "@/lib/cn";
-import { motion, AnimatePresence } from "motion/react";
 
 interface SectionsGridProps {
   consultationContent: React.ReactNode;

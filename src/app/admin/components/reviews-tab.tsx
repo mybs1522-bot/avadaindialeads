@@ -14,8 +14,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { supabase } from "@/lib/supabase";
 import { WriteReviewDialog } from "@/features/profile/components/reviews/write-review-dialog";
+import { supabase } from "@/lib/supabase";
 
 interface Review {
   id: string;

@@ -5,7 +5,6 @@ import React, { useState } from "react";
 import { cn } from "@/lib/cn";
 
 import { Review } from "../../types/reviews";
-import { VerifiedIcon } from "../verified-icon";
 
 function getInitials(name: string) {
   return name

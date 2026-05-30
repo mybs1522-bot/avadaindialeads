@@ -1,11 +1,11 @@
 import { LinkIcon, MapPinIcon } from "lucide-react";
+import Image from "next/image";
 
 import { USER } from "@/data/user";
 import { urlToName } from "@/utils/url";
 
 import { SOCIAL_LINKS } from "../../data/social-links";
 import { Panel, PanelContent } from "../panel";
-import Image from "next/image";
 import { EmailItem } from "./email-item";
 import { IntroItem } from "./intro-item";
 import { JobItem } from "./job-item";

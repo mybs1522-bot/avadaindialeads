@@ -1,6 +1,6 @@
 "use client";
 
-import { Loader2, Trash2, Upload, Link as LinkIcon } from "lucide-react";
+import { Link as LinkIcon,Loader2, Trash2, Upload } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";

@@ -117,10 +117,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { BooksTab } from "./components/books-tab";
 import { LeadsTab } from "./components/leads-tab";
-import { ReviewsTab } from "./components/reviews-tab";
-import { ServicesTab } from "./components/services-tab";
 import { ProjectsTab } from "./components/projects-tab";
+import { ReviewsTab } from "./components/reviews-tab";
 import { ServiceLeadsTab } from "./components/service-leads-tab";
+import { ServicesTab } from "./components/services-tab";
 
 function Dashboard() {
   return (

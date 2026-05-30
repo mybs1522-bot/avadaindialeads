@@ -10,7 +10,6 @@ import { USER } from "@/data/user";
 import { BooksSection } from "@/features/books/components/books-section";
 import { About } from "@/features/profile/components/about";
 import { Header } from "@/features/profile/components/header";
-import { Overview } from "@/features/profile/components/overview";
 import { Projects } from "@/features/profile/components/projects";
 import { QuickActions } from "@/features/profile/components/quick-actions";
 import { Reviews } from "@/features/profile/components/reviews";

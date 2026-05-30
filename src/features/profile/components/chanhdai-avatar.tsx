@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { cn } from "@/lib/cn";
 
 import ImgAvatar from "@/../public/images/avatar.jpg";
 import { USER } from "@/data/user";
+import { cn } from "@/lib/cn";
 
 export function ChanhDaiAvatar({
   className,

@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, Phone, Video, Cuboid } from "lucide-react";
+import { ChevronRight, Cuboid,Phone, Video } from "lucide-react";
 import React, { useState } from "react";
 
 import { cn } from "@/lib/cn";

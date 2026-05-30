@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabase";
+
 import { Panel, PanelHeader, PanelTitle } from "../panel";
 import { ProjectsGallery } from "./projects-gallery";
 

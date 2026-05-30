@@ -13,8 +13,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { supabase } from "@/lib/supabase";
 import { Service } from "@/features/profile/types/services";
+import { supabase } from "@/lib/supabase";
 
 type ServiceLead = {
   id: string;
