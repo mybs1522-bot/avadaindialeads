@@ -56,56 +56,6 @@ function StarRow({ count, max = 5 }: { count: number; max?: number }) {
   );
 }
 
-/* ─── Laurel Wreath SVG ─── */
-
-function _LaurelWreath({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 120 120"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn("size-full", className)}
-    >
-      {/* Left branch */}
-      <g className="text-muted-foreground/50" fill="currentColor">
-        {/* Left leaves */}
-        <ellipse cx="25" cy="85" rx="6" ry="12" transform="rotate(25 25 85)" />
-        <ellipse cx="20" cy="70" rx="5" ry="11" transform="rotate(15 20 70)" />
-        <ellipse cx="18" cy="55" rx="5" ry="10" transform="rotate(5 18 55)" />
-        <ellipse cx="20" cy="40" rx="5" ry="10" transform="rotate(-10 20 40)" />
-        <ellipse cx="25" cy="27" rx="5" ry="9" transform="rotate(-25 25 27)" />
-        <ellipse cx="33" cy="17" rx="4" ry="8" transform="rotate(-40 33 17)" />
-        {/* Left stem */}
-        <path
-          d="M42 105 C30 85, 18 60, 40 10"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          fill="none"
-          opacity="0.4"
-        />
-      </g>
-      {/* Right branch */}
-      <g className="text-muted-foreground/50" fill="currentColor">
-        {/* Right leaves */}
-        <ellipse cx="95" cy="85" rx="6" ry="12" transform="rotate(-25 95 85)" />
-        <ellipse cx="100" cy="70" rx="5" ry="11" transform="rotate(-15 100 70)" />
-        <ellipse cx="102" cy="55" rx="5" ry="10" transform="rotate(-5 102 55)" />
-        <ellipse cx="100" cy="40" rx="5" ry="10" transform="rotate(10 100 40)" />
-        <ellipse cx="95" cy="27" rx="5" ry="9" transform="rotate(25 95 27)" />
-        <ellipse cx="87" cy="17" rx="4" ry="8" transform="rotate(40 87 17)" />
-        {/* Right stem */}
-        <path
-          d="M78 105 C90 85, 102 60, 80 10"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          fill="none"
-          opacity="0.4"
-        />
-      </g>
-    </svg>
-  );
-}
-
 /* ─── Rating Bar ─── */
 
 function RatingBar({ star, count, max }: { star: number; count: number; max: number }) {
