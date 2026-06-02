@@ -1,13 +1,14 @@
 export const USER = {
-  firstName: "Shagun",
-  lastName: "Yadav",
-  displayName: "Ar Shagun Yadav",
-  username: "shagun",
+  firstName: "Avada",
+  lastName: "Space",
+  displayName: "Avadaspace",
+  username: "avadaspace",
   gender: "female",
-  bio: "Architect",
+  bio: "Interior Design Courses",
   flipSentences: [
-    "Interior Designer",
-    "ArchBIZ Consultant",
+    "Exterior Design Courses",
+    "Planning & Design",
+    "Professional Rendering",
   ],
   address: "India",
   phoneNumber: "", // E.164 format, base64 encoded
@@ -15,17 +16,18 @@ export const USER = {
   website: "https://archbysha.com",
   otherWebsites: [],
   dateOfBirth: "2000-01-01", // YYYY-MM-DD
-  jobTitle: "Architect & ArchBIZ Consultant",
+  jobTitle: "Design Education & Professional Services",
   jobs: [
     {
-      title: "Founder & Lead Architect",
-      company: "ArchBySha",
-      website: "https://archbysha.com",
+      title: "Founder & Lead Instructor",
+      company: "Avadaspace",
+      website: "https://avadaspace.com",
     },
   ],
   about: `
-I am Ar. Shagun Yadav, Architect & Interior Designer.
-**If you want me to design your dream home, do budgeting and help you with proper estimations to save you cash, let's connect!**
+We teach comprehensive **Interior Design and Exterior Design Courses**, specializing in **planning, design, and professional rendering**.
+
+At Avadaspace, we provide industry-leading education in architectural design, interior aesthetics, spatial planning, and cutting-edge 3D rendering techniques. Our courses are designed for aspiring designers and professionals seeking to master the art and science of creating beautiful, functional spaces.
   `,
   avatar: "/images/avatar.jpg",
   ogImage: "/images/chanhdai-og-image.png?v=250420",

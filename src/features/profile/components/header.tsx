@@ -3,7 +3,6 @@ import { SimpleTooltip } from "@/components/ui/tooltip";
 import { USER } from "@/data/user";
 import { FlipSentences } from "@/registry/flip-sentences";
 
-import { ChanhDaiAvatar } from "./chanhdai-avatar";
 import { ChanhDaiCoverHello } from "./chanhdai-cover-hello";
 import { Nav } from "./nav/nav";
 import { NavDropdown } from "./nav/nav-dropdown";
@@ -23,30 +22,20 @@ export function Header() {
 
       <ChanhDaiCoverHello />
 
-      <div className="screen-line-after flex border-x border-grid">
-        <div className="relative shrink-0 border-r border-grid">
-          <div className="mx-[2px] my-[3px]">
-            <ChanhDaiAvatar className="size-32 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background sm:size-40" />
-          </div>
-        </div>
+      <div className="screen-line-after flex flex-col border-x border-grid">
+        <div className="flex flex-col items-center justify-center border-t border-grid py-6 text-center">
+          <h1 className="flex items-center justify-center font-heading text-3xl font-medium">
+            {USER.displayName}
+            &nbsp;
+            <SimpleTooltip
+              content={`Official website of ${USER.displayName}`}
+            >
+              <VerifiedIcon className="size-[0.6em] translate-y-px text-info" />
+            </SimpleTooltip>
+          </h1>
 
-        <div className="flex flex-1 flex-col">
-          <div className="flex grow"></div>
-
-          <div className="border-t border-grid">
-            <h1 className="flex items-center pl-4 font-heading text-3xl font-medium">
-              {USER.displayName}
-              &nbsp;
-              <SimpleTooltip
-                content={`Official website of ${USER.displayName}`}
-              >
-                <VerifiedIcon className="size-[0.6em] translate-y-px text-info" />
-              </SimpleTooltip>
-            </h1>
-
-            <div className="h-12 border-t border-grid py-1 pl-4 sm:h-auto">
-              <FlipSentences sentences={[USER.bio, ...USER.flipSentences]} />
-            </div>
+          <div className="mt-4">
+            <FlipSentences sentences={[USER.bio, ...USER.flipSentences]} />
           </div>
         </div>
       </div>

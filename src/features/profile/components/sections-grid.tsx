@@ -57,7 +57,10 @@ export function SectionsGrid({
                 : "text-muted-foreground"
             )}
           />
-          <span className="text-xs font-bold sm:text-sm">Consultation</span>
+          <div className="text-center">
+            <span className="text-xs font-bold sm:text-sm">Planning Courses</span>
+            <span className="text-[10px] text-muted-foreground sm:text-xs">(1)</span>
+          </div>
         </button>
 
         <button
@@ -77,7 +80,10 @@ export function SectionsGrid({
                 : "text-muted-foreground"
             )}
           />
-          <span className="text-xs font-bold sm:text-sm">My Designs</span>
+          <div className="text-center">
+            <span className="text-xs font-bold sm:text-sm">Designing Courses</span>
+            <span className="text-[10px] text-muted-foreground sm:text-xs">(3)</span>
+          </div>
         </button>
 
         <button
@@ -97,7 +103,10 @@ export function SectionsGrid({
                 : "text-muted-foreground"
             )}
           />
-          <span className="text-xs font-bold sm:text-sm">Books</span>
+          <div className="text-center">
+            <span className="text-xs font-bold sm:text-sm">Rendering Courses</span>
+            <span className="text-[10px] text-muted-foreground sm:text-xs">(4)</span>
+          </div>
         </button>
       </div>
 

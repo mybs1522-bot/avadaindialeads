@@ -7,14 +7,12 @@ import { ScrollTop } from "@/components/scroll-top";
 import { SITE_INFO } from "@/config/site";
 import { VIETNAM_HOLIDAYS } from "@/config/site";
 import { USER } from "@/data/user";
-import { BooksSection } from "@/features/books/components/books-section";
 import { About } from "@/features/profile/components/about";
+import { DesigningCourses, PlanningCourses, RenderingCourses } from "@/features/profile/components/courses";
 import { Header } from "@/features/profile/components/header";
-import { Projects } from "@/features/profile/components/projects";
 import { QuickActions } from "@/features/profile/components/quick-actions";
 import { Reviews } from "@/features/profile/components/reviews";
 import { SectionsGrid } from "@/features/profile/components/sections-grid";
-import { Services } from "@/features/profile/components/services";
 import { StickyHeader } from "@/features/profile/components/sticky-header";
 import { cn } from "@/lib/cn";
 
@@ -43,9 +41,9 @@ export default async function Page() {
             <Pattern />
 
             <SectionsGrid 
-              consultationContent={<Services />}
-              designsContent={<Projects />}
-              booksContent={<BooksSection />}
+              consultationContent={<PlanningCourses />}
+              designsContent={<DesigningCourses />}
+              booksContent={<RenderingCourses />}
             />
             <Pattern />
 

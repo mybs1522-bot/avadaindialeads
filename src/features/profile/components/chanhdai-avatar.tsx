@@ -15,7 +15,7 @@ export function ChanhDaiAvatar({
 }) {
   return (
     <Image
-      className={cn("object-cover", className)}
+      className={cn("object-contain", className)}
       alt={`${USER.displayName}'s avatar`}
       src={ImgAvatar}
       width={size}
