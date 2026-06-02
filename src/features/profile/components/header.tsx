@@ -22,23 +22,7 @@ export function Header() {
 
       <ChanhDaiCoverHello />
 
-      <div className="screen-line-after flex flex-col border-x border-grid">
-        <div className="flex flex-col items-center justify-center border-t border-grid py-6 text-center">
-          <h1 className="flex items-center justify-center font-heading text-3xl font-medium">
-            {USER.displayName}
-            &nbsp;
-            <SimpleTooltip
-              content={`Official website of ${USER.displayName}`}
-            >
-              <VerifiedIcon className="size-[0.6em] translate-y-px text-info" />
-            </SimpleTooltip>
-          </h1>
 
-          <div className="mt-4">
-            <FlipSentences sentences={[USER.bio, ...USER.flipSentences]} />
-          </div>
-        </div>
-      </div>
     </header>
   );
 }

@@ -4,7 +4,7 @@ export const REVIEWS: Review[] = [
   // Row 1 - Static
   {
     id: "r1",
-    content: "Bro the consultation literally saved me so much cash! Shagun broke down the actual material costs so we didn't get scammed by the vendors.",
+    content: "Bro the Autocad course literally saved me so much time! The instructor broke down the actual shortcuts so I didn't get stuck on basics.",
     rating: 5,
     author: {
       name: "Aman",
@@ -15,7 +15,7 @@ export const REVIEWS: Review[] = [
   },
   {
     id: "r2",
-    content: "Loved how chill the talk was. No pushing fancy brands or random gimmicks, just straight up honest advice. Highly recommend her.",
+    content: "Loved how chill the Sketchup classes were. No pushing unnecessary plugins, just straight up honest teaching. Highly recommend.",
     rating: 5,
     author: {
       name: "Rishi",
@@ -26,7 +26,7 @@ export const REVIEWS: Review[] = [
   },
   {
     id: "r3",
-    content: "She gave me crazy good tips on how to hire a proper contractor and what red flags to avoid. I feel way more confident dealing with them now.",
+    content: "She gave me crazy good tips on how to render properly in D5 Render. I feel way more confident dealing with complex scenes now.",
     rating: 5,
     author: {
       name: "Shruti",
@@ -39,7 +39,7 @@ export const REVIEWS: Review[] = [
   // Row 2 - Scrolling left
   {
     id: "r4",
-    content: "She literally pointed out a massive flaw in our layout that we would have totally missed. Saved us a huge headache man.",
+    content: "She literally pointed out a massive flaw in my 3ds Max workflow that I would have totally missed. Saved me a huge headache man.",
     rating: 5,
     author: {
       name: "Kabir",
@@ -50,7 +50,7 @@ export const REVIEWS: Review[] = [
   },
   {
     id: "r5",
-    content: "Shagun taught us how to actually measure stuff and check the work being done on-site. Helped us get exactly what we paid for.",
+    content: "The Revit course taught us how to actually set up families correctly. Helped us get exactly what we needed for the project.",
     rating: 5,
     author: {
       name: "Tanya",
@@ -61,7 +61,7 @@ export const REVIEWS: Review[] = [
   },
   {
     id: "r6",
-    content: "Super easy to talk to. It honestly felt like just getting advice from a really smart friend who knows literally everything about interiors.",
+    content: "Super easy to follow. It honestly felt like just getting advice from a really smart friend who knows literally everything about Lumion.",
     rating: 5,
     author: {
       name: "Sahil",
@@ -72,7 +72,7 @@ export const REVIEWS: Review[] = [
   },
   {
     id: "r7",
-    content: "No sugarcoating at all, just real talk about what works and what's a waste of money. Book her if you want to actually save some bucks.",
+    content: "No sugarcoating at all, just real talk about what works in Enscape and what's a waste of time. Book this if you want to learn fast.",
     rating: 5,
     author: {
       name: "Meghna",
@@ -83,7 +83,7 @@ export const REVIEWS: Review[] = [
   },
   {
     id: "r8",
-    content: "The best part was learning how to check if the contractor is actually doing a decent job on-site. Worth every single penny guys.",
+    content: "The best part was learning how to optimize my scenes in Vray. Worth every single penny guys.",
     rating: 5,
     author: {
       name: "Ravi",
@@ -96,7 +96,7 @@ export const REVIEWS: Review[] = [
   // Row 3 - Scrolling right
   {
     id: "r9",
-    content: "She completely broke down the raw material costs for us. We were deadass about to overspend by a mile before this call.",
+    content: "She completely broke down the lighting techniques for us. We were deadass about to give up on realism before this course.",
     rating: 5,
     author: {
       name: "Dhruv",
@@ -107,7 +107,7 @@ export const REVIEWS: Review[] = [
   },
   {
     id: "r10",
-    content: "Clear, direct, and super helpful. She spotted layout issues in literally two seconds that our previous guy completely missed.",
+    content: "Clear, direct, and super helpful. She spotted modeling issues in literally two seconds that my previous teacher completely missed.",
     rating: 5,
     author: {
       name: "Kritika",
@@ -118,7 +118,7 @@ export const REVIEWS: Review[] = [
   },
   {
     id: "r11",
-    content: "No brand pushing at all! Just pure focus on quality and what actually fits our tight budget. Was super refreshing to hear.",
+    content: "No fluff at all! Just pure focus on quality and what actually fits our workflow. Was super refreshing to learn.",
     rating: 5,
     author: {
       name: "Varun",
@@ -129,7 +129,7 @@ export const REVIEWS: Review[] = [
   },
   {
     id: "r12",
-    content: "She literally gave me a cheat sheet of questions to ask when interviewing contractors. Absolute game changer for our new place.",
+    content: "She literally gave me a cheat sheet of shortcuts to use. Absolute game changer for my drafting speed.",
     rating: 4,
     author: {
       name: "Simran",
@@ -140,7 +140,7 @@ export const REVIEWS: Review[] = [
   },
   {
     id: "r13",
-    content: "Honestly, the advice on how to cross-check measurements and verify the work on-site was pure gold. Thank you so much!",
+    content: "Honestly, the advice on how to cross-check measurements and verify the model was pure gold. Thank you so much!",
     rating: 5,
     author: {
       name: "Karan",

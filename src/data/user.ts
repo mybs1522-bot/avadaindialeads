@@ -26,8 +26,6 @@ export const USER = {
   ],
   about: `
 We teach comprehensive **Interior Design and Exterior Design Courses**, specializing in **planning, design, and professional rendering**.
-
-At Avadaspace, we provide industry-leading education in architectural design, interior aesthetics, spatial planning, and cutting-edge 3D rendering techniques. Our courses are designed for aspiring designers and professionals seeking to master the art and science of creating beautiful, functional spaces.
   `,
   avatar: "/images/avatar.jpg",
   ogImage: "/images/chanhdai-og-image.png?v=250420",

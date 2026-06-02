@@ -116,6 +116,7 @@ function PasswordGate({ onSuccess }: { onSuccess: () => void }) {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { BooksTab } from "./components/books-tab";
+import { CourseLeadsTab } from "./components/course-leads-tab";
 import { LeadsTab } from "./components/leads-tab";
 import { ProjectsTab } from "./components/projects-tab";
 import { ReviewsTab } from "./components/reviews-tab";
@@ -127,6 +128,7 @@ function Dashboard() {
     <Tabs defaultValue="services" className="w-full">
       <TabsList className="mb-4 flex flex-wrap h-auto w-full max-w-3xl justify-start gap-2 bg-transparent">
         <TabsTrigger value="services" className="data-[state=active]:bg-muted">Services</TabsTrigger>
+        <TabsTrigger value="course-leads" className="data-[state=active]:bg-muted">Course/Form Leads</TabsTrigger>
         <TabsTrigger value="books" className="data-[state=active]:bg-muted">E-Books</TabsTrigger>
         <TabsTrigger value="leads" className="data-[state=active]:bg-muted">Book Leads</TabsTrigger>
         <TabsTrigger value="service-leads" className="data-[state=active]:bg-muted">Service Leads</TabsTrigger>
@@ -136,6 +138,10 @@ function Dashboard() {
       
       <TabsContent value="services" className="border rounded-xl p-6 bg-card shadow-sm">
         <ServicesTab />
+      </TabsContent>
+
+      <TabsContent value="course-leads" className="border rounded-xl p-6 bg-card shadow-sm mt-0">
+        <CourseLeadsTab />
       </TabsContent>
       
       <TabsContent value="books" className="border rounded-xl p-6 bg-card shadow-sm">

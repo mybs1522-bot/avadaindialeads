@@ -8,12 +8,15 @@ import { SITE_INFO } from "@/config/site";
 import { VIETNAM_HOLIDAYS } from "@/config/site";
 import { USER } from "@/data/user";
 import { About } from "@/features/profile/components/about";
-import { DesigningCourses, PlanningCourses, RenderingCourses } from "@/features/profile/components/courses";
+import { CareerGoals } from "@/features/profile/components/career-goals";
+import { CourseBio } from "@/features/profile/components/course-bio";
+import { CoursesGrid } from "@/features/profile/components/courses-grid";
 import { Header } from "@/features/profile/components/header";
+import { InvestmentROI } from "@/features/profile/components/investment-roi";
 import { QuickActions } from "@/features/profile/components/quick-actions";
 import { Reviews } from "@/features/profile/components/reviews";
-import { SectionsGrid } from "@/features/profile/components/sections-grid";
 import { StickyHeader } from "@/features/profile/components/sticky-header";
+import { StudentsGallery } from "@/features/profile/components/students-gallery";
 import { cn } from "@/lib/cn";
 
 export const revalidate = 0;
@@ -37,17 +40,25 @@ export default async function Page() {
           <main>
 
 
-            <About />
+            <CourseBio />
             <Pattern />
 
-            <SectionsGrid 
-              consultationContent={<PlanningCourses />}
-              designsContent={<DesigningCourses />}
-              booksContent={<RenderingCourses />}
-            />
+            <CareerGoals />
+            <Pattern />
+
+            <CoursesGrid />
+            <Pattern />
+
+            <StudentsGallery />
+            <Pattern />
+
+            <InvestmentROI />
             <Pattern />
 
             <Reviews />
+            <Pattern />
+
+            <About />
             <Pattern />
           </main>
 
@@ -83,8 +94,8 @@ function Pattern({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative flex h-8 w-full border-x border-grid",
-        "before:absolute before:-left-[100vw] before:-z-1 before:h-8 before:w-[200vw]",
+        "relative flex h-4 sm:h-5 w-full border-x border-grid",
+        "before:absolute before:-left-[100vw] before:-z-1 before:h-4 sm:before:h-5 before:w-[200vw]",
         "before:bg-[image:repeating-linear-gradient(315deg,_var(--pattern-foreground)_0,_var(--pattern-foreground)_1px,_transparent_0,_transparent_50%)] before:bg-[size:10px_10px] before:[--pattern-foreground:var(--color-grid)]/56",
         className
       )}
