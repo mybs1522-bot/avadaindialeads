@@ -7,12 +7,12 @@ import { Navbar } from "@/components/Navbar";
 import { TestimonialsSection } from "@/components/testimonials-with-marquee";
 import { AnimatedMarqueeHero } from "@/components/ui/hero-3";
 import { motion } from "framer-motion";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { AnimatePresence } from "framer-motion";
 
 import {
   Monitor, Box, Video, Cpu, Layers, Users,
   BookOpen, CheckCircle, ArrowRight, Briefcase,
-  Shield, BadgeCheck, Clock, Sparkles, Ruler, PencilRuler, Image, Clapperboard
+  Shield, BadgeCheck, Clock, Ruler, PencilRuler, Image, Clapperboard
 } from "lucide-react";
 
 const courseAutocad = "/assets/course-autocad.jpg";
@@ -39,16 +39,19 @@ const hero7 = "/assets/hero-7.jpg";
 const hero8 = "/assets/hero-8.jpg";
 const logo = "/assets/logo.png";
 import { EvergreenTimer } from "@/components/EvergreenTimer";
-import { Sparkles as SparklesEffect } from "@/components/ui/sparkles";
+
 import { MarketingDashboard } from "@/components/ui/dashboard-1";
 
 const courses = [
-  { id: "autocad", title: "AutoCAD Plan Designing", desc: "The one skill that gets you hired. You'll be drafting floor plans that clients approve on sight — most students finish this in under a week.", icon: Monitor, image: courseAutocad },
-  { id: "sketchup", title: "SketchUp 3D Modeling", desc: "Turn a flat sketch into a 3D walkthrough that makes clients reach for their wallets. This is how the top 1% of designers close deals.", icon: Box, image: courseSketchup },
-  { id: "d5", title: "D5 Render — Photo and Video", desc: "Photorealistic images in under 10 minutes. Your clients will think you hired a photographer. We've seen students double their rates after learning this.", icon: Video, image: courseD5 },
-  { id: "ai", title: "AI Rendering Tools", desc: "Generate magazine-quality visuals in 30 seconds flat. While other designers spend 4 hours rendering, you'll be sending invoices.", icon: Cpu, image: courseAi },
-  { id: "workflow", title: "Design-to-Delivery Workflow", desc: "The exact step-by-step process to take any project from first call to final handover — even if you've never managed a client before.", icon: Layers, image: courseWorkflow },
-  { id: "client", title: "Client and Business Skills", desc: "Where to find clients, how to price without undercharging, and the proposal template that has a 73% close rate. This module alone pays for the membership.", icon: Users, image: courseClient },
+  { id: "autocad", title: "AutoCAD Plan Designing", desc: "Draft floor plans that clients approve on sight.", icon: Monitor, image: courseAutocad },
+  { id: "sketchup", title: "SketchUp 3D Modeling", desc: "Turn a flat sketch into a stunning 3D model.", icon: Box, image: courseSketchup },
+  { id: "d5", title: "D5 Render — Photo and Video", desc: "Create photorealistic images in under 10 minutes.", icon: Video, image: courseD5 },
+  { id: "vray", title: "V-Ray Photorealistic Rendering", desc: "Industry-standard rendering for breathtaking visuals.", icon: Image, image: courseAutocad },
+  { id: "3dsmax", title: "3ds Max for Architecture", desc: "Advanced modeling for complex architectural designs.", icon: Layers, image: courseSketchup },
+  { id: "ai", title: "AI Rendering Tools", desc: "Generate magazine-quality visuals in 30 seconds flat.", icon: Cpu, image: courseAi },
+  { id: "interior", title: "Interior Design Fundamentals", desc: "Master color, lighting, and spatial arrangement.", icon: Ruler, image: courseWorkflow },
+  { id: "workflow", title: "Design-to-Delivery Workflow", desc: "The step-by-step process to manage any project.", icon: Layers, image: courseWorkflow },
+  { id: "client", title: "Client and Business Skills", desc: "Find clients, price correctly, and close deals.", icon: Users, image: courseClient },
 ];
 
 const books = [
@@ -144,10 +147,10 @@ function InlineOfferTimer() {
   }, []);
 
   return (
-    <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-border bg-accent/10 px-3 py-1.5 text-[11px] font-semibold text-primary">
-      <Clock className="h-3.5 w-3.5 flex-shrink-0" />
+    <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 text-[11px] font-semibold text-gray-600">
+      <Clock className="h-3.5 w-3.5 flex-shrink-0 text-gray-400" />
       <span>Offer closing in</span>
-      <span className="font-black tabular-nums text-primary">{formatInlineTimer(timeLeft)}</span>
+      <span className="font-black tabular-nums text-gray-900">{formatInlineTimer(timeLeft)}</span>
     </div>
   );
 }
@@ -185,7 +188,7 @@ export default function LandingPage() {
 
   return (
     <div ref={scrollRef as any} className="min-h-screen bg-white overflow-x-hidden">
-      <Navbar onJoinClick={() => router.push('/preview')} />
+
 
       {/* ─── HERO — PDR SECTION ─── */}
       <motion.section
@@ -194,35 +197,25 @@ export default function LandingPage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        {/* Subtle radial glow */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, var(--d-primary) 0%, transparent 60%)' }} />
+
 
         <div className="container mx-auto max-w-5xl px-0 sm:px-0 relative z-10">
-          {/* Top pill badge — PAIN POINT */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.5 }}
-            className="inline-flex max-w-full items-center gap-2 rounded-full px-4 sm:px-5 py-2 mb-4 border whitespace-nowrap" style={{ background: 'var(--d-primary)', borderColor: 'var(--d-primary)' }}
-          >
-            <CheckCircle className="h-3.5 w-3.5 flex-shrink-0" style={{ color: 'var(--d-primary)' }} />
-            <span className="text-[10px] sm:text-[11px] font-bold tracking-wide whitespace-nowrap" style={{ color: 'var(--d-primary)' }}>Limited Offer — Free Access</span>
-          </motion.div>
+
 
           {/* Aspirational hook */}
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.5 }}
-            className="text-gray-700 text-base sm:text-lg md:text-xl font-bold mb-4 max-w-3xl mx-auto leading-relaxed"
+            className="text-emerald-600 text-[10px] sm:text-base md:text-lg font-medium mb-4 max-w-3xl mx-auto leading-relaxed whitespace-nowrap sm:whitespace-normal tracking-tight"
           >
-            Want to Design{' '}
-            <span className="text-accent font-extrabold">Bedrooms</span>,{' '}
-            <span className="text-accent font-extrabold">Kitchens</span>,{' '}
-            <span className="text-accent font-extrabold">Washrooms</span>,{' '}
-            <span className="text-accent font-extrabold">Villas</span>,{' '}
-            <span className="text-accent font-extrabold">Offices</span>{' '}
-            in Accurate 3D?
+            Learn to Design{' '}
+            <span className="text-emerald-800 font-bold">Bedrooms</span>,{' '}
+            <span className="text-emerald-800 font-bold">Kitchens</span>,{' '}
+            <span className="text-emerald-800 font-bold">Washrooms</span>,{' '}
+            <span className="text-emerald-800 font-bold">Villas</span>,{' '}
+            <span className="text-emerald-800 font-bold">Offices</span>{' '}
+            in Accurate 3D.
           </motion.p>
 
           {/* Main headline */}
@@ -230,16 +223,15 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.6 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 tracking-tight leading-[1] mb-2"
+            className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-[1] mb-2"
           >
-            Master SketchUp.
+            Start Learning Interior & Exterior Design
           </motion.h1>
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1] mb-5"
-            style={{ color: 'var(--d-primary)' }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1] mb-5 text-gray-400"
           >
             Start for Free.
           </motion.h2>
@@ -254,9 +246,7 @@ export default function LandingPage() {
             <p className="text-gray-700 text-sm sm:text-base font-semibold mb-2">
               Go from zero to designing stunning 3D interiors & exteriors — step by step
             </p>
-            <p className="text-gray-600 text-xs sm:text-sm font-medium">
-              Free access. No subscriptions. No upsells. Just results.
-            </p>
+
           </motion.div>
 
           {/* Video embed */}
@@ -287,20 +277,20 @@ export default function LandingPage() {
             <p className="text-sm sm:text-base text-gray-700 italic  leading-snug mb-3">
               "SketchUp is the #1 tool architects and interior designers use every single day. <span className="underline decoration-2 decoration-gray-800 font-bold not-italic">But most people learn it the slow, painful way</span> — random YouTube videos, confusing tutorials, zero structure."
             </p>
-            <div className="w-10 h-1 rounded-full bg-accent mb-3" />
+            <div className="w-10 h-1 rounded-full bg-gray-200 mb-3" />
             <p className="text-xs sm:text-[13px] text-gray-500 leading-snug mb-2">
               We built something different. A course that actually respects your time and gets you to…
             </p>
-            <h3 className="text-lg sm:text-xl font-black mb-3" style={{ color: 'var(--d-primary)' }}>
+            <h3 className="text-lg sm:text-xl font-black mb-3 text-gray-900">
               "I can actually do this" — in days, not months.
             </h3>
 
             {/* Rocket callout */}
-            <div className="rounded-xl bg-accent/10 border border-border p-3 sm:p-4 flex items-start gap-2.5">
+            <div className="rounded-xl bg-gray-50 border border-gray-200 p-3 sm:p-4 flex items-start gap-2.5">
               <span className="text-lg flex-shrink-0 mt-0.5">🚀</span>
               <p className="text-xs sm:text-[13px] text-gray-600 leading-snug">
                 12,347 students have already enrolled for free. No subscriptions, no hidden fees — just{' '}
-                <span className="font-bold" style={{ color: 'var(--d-primary)' }}>a complete SketchUp education that actually works.</span>
+                <span className="font-bold text-gray-900">a complete SketchUp education that actually works.</span>
               </p>
             </div>
           </motion.div>
@@ -318,10 +308,9 @@ export default function LandingPage() {
               whileTap={{ scale: 0.96 }}
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
               onClick={() => handleEnrollClick()}
-              className="px-12 py-5 rounded-full font-bold text-sm sm:text-base uppercase tracking-wider text-white shadow-lg flex items-center gap-3 cta-breathe touch-manipulation"
-              style={{ background: 'linear-gradient(135deg, var(--d-primary), var(--d-primary))' }}
+              className="px-12 py-4 rounded-lg font-semibold text-sm sm:text-base text-white shadow-md flex items-center gap-3 touch-manipulation bg-gray-900 hover:bg-gray-800 transition-colors"
             >
-              Get SketchUp Course — Free
+              Start Free Today
               <ArrowRight className="h-5 w-5" />
             </motion.button>
             <p className="text-[10px] text-gray-400 font-medium tracking-wide">
@@ -337,7 +326,7 @@ export default function LandingPage() {
           >
             <div className="mb-5 text-center">
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-gray-900">
-                This is What Our Students <span className="text-accent">Create</span>
+                This is What Our Students <span className="text-gray-500">Create</span>
               </h3>
             </div>
             <style>{`
@@ -375,25 +364,72 @@ export default function LandingPage() {
         </div>
       </motion.section>
 
-      {/* ─── SKETCHUP STUDENT BANNER ─── */}
-      <div className="relative w-full overflow-hidden" style={{ height: '280px' }}>
-        <img
-          src="https://www.balikahomes.com/cdn/shop/files/SKETCHUP_COURSE_LAPTOP_1_copy_2.jpg?quality=90&v=1768558370&width=1500"
-          alt="Student working on SketchUp project"
-          className="w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 sm:pb-8 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-tight"
+      {/* ─── OUR 9 COURSES ─── */}
+      <motion.section
+        className="py-14 sm:py-20 px-5 sm:px-6 bg-gray-50 border-b border-gray-100"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        variants={sectionVariants}
+      >
+        <div className="container mx-auto max-w-5xl">
+          <motion.div className="text-center mb-10" variants={sectionVariants}>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 leading-tight mb-2">
+              Our 9 Premium Courses
+            </h2>
+            <p className="text-lg sm:text-xl font-bold text-green-600">
+              Get Introduction class free
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-3 gap-2 sm:gap-5"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
           >
-            From Planning to <span style={{ color: '#4ade80' }}>3D</span>
-          </motion.h2>
+            {courses.map((course) => (
+              <motion.div
+                key={course.id}
+                variants={itemVariants}
+                whileHover={{ scale: 1.02, y: -4 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col"
+              >
+                <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
+                  <img src={course.image} alt={course.title} className="w-full h-full object-cover" />
+                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur text-[10px] font-bold px-2 py-1 rounded-md text-gray-900">
+                    Course {courses.indexOf(course) + 1}/9
+                  </div>
+                </div>
+                <div className="p-2 sm:p-5 flex-1 flex flex-col">
+                  <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
+                    <course.icon className="h-3 w-3 sm:h-4 sm:w-4 text-gray-500 flex-shrink-0" />
+                    <h3 className="font-bold text-gray-900 text-[10px] sm:text-[15px] leading-tight line-clamp-2">{course.title}</h3>
+                  </div>
+                  <p className="hidden sm:block text-gray-500 text-[13px] leading-snug">{course.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+          
+
         </div>
+      </motion.section>
+
+
+      {/* ─── SKETCHUP STUDENT BANNER ─── */}
+      <div className="relative w-full overflow-hidden bg-gray-50 py-10 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight leading-tight"
+        >
+          From Planning to <span className="text-gray-400">3D</span>
+        </motion.h2>
       </div>
 
 
@@ -410,8 +446,8 @@ export default function LandingPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight leading-tight">
               What You'll Be Able to
             </h2>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight" style={{ color: 'var(--d-primary)' }}>
-              Do After This Course
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight text-gray-400">
+              After Learning Sketchup
             </h2>
           </motion.div>
 
@@ -466,7 +502,7 @@ export default function LandingPage() {
                 {/* Card header */}
                 <div className="flex items-start justify-between mb-3">
                   <h4 className="text-xs sm:text-[13px] font-bold text-gray-900 leading-tight pr-2">{card.title}</h4>
-                  <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 text-accent">
+                  <div className="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 text-gray-600">
                     <card.icon className="h-5 w-5" />
                   </div>
                 </div>
@@ -484,7 +520,7 @@ export default function LandingPage() {
                   </div>
                   {/* After */}
                   <div className="flex-1">
-                    <span className="text-[9px] font-black uppercase tracking-widest" style={{ color: 'var(--d-primary)' }}>AFTER</span>
+                    <span className="text-[9px] font-black uppercase tracking-widest text-green-600">AFTER</span>
                     <p className="text-[12px] font-bold text-gray-900 mt-1 leading-snug">{card.afterText}</p>
                   </div>
                 </div>
@@ -496,23 +532,14 @@ export default function LandingPage() {
 
       {/* ─── STRUGGLE vs BLUEPRINT ─── */}
       <motion.section
-        className="py-10 sm:py-20 px-5 sm:px-8"
-        style={{ background: 'linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%)' }}
+        className="py-10 sm:py-20 px-5 sm:px-8 bg-white"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1, margin: "-80px" }}
         variants={sectionVariants}
       >
         <div className="w-full max-w-7xl mx-auto">
-          {/* Heading */}
-          <motion.div className="text-center mb-6 sm:mb-10" variants={sectionVariants}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight leading-tight">
-              Learning Alone
-            </h2>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight mt-1">
-              vs. <span style={{ color: 'var(--d-primary)' }}>Learning With Us</span>
-            </h2>
-          </motion.div>
+
 
           {/* Two-column comparison — stacked on mobile */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-8 lg:gap-10">
@@ -552,13 +579,13 @@ export default function LandingPage() {
               variants={itemVariants}
               whileHover={{ scale: 1.01 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="rounded-2xl border border-border bg-gradient-to-br from-accent/5 to-white p-5 sm:p-7 lg:p-9 touch-manipulation"
+              className="rounded-2xl border border-gray-200 bg-white p-5 sm:p-7 lg:p-9 touch-manipulation"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-9 w-9 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle className="h-4.5 w-4.5 text-accent" />
+                <div className="h-9 w-9 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0">
+                  <CheckCircle className="h-4.5 w-4.5 text-green-600" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-black text-accent tracking-tight">What You Get With Us</h3>
+                <h3 className="text-lg sm:text-xl font-black text-gray-900 tracking-tight">What You Get With Us</h3>
               </div>
 
               <div className="space-y-3 sm:space-y-4">
@@ -587,10 +614,9 @@ export default function LandingPage() {
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
               onClick={() => handleEnrollClick()}
-              className="px-10 py-4 rounded-full font-bold text-[12px] uppercase tracking-[0.15em] text-white shadow-lg flex items-center gap-2 mx-auto cta-breathe"
-              style={{ background: 'linear-gradient(135deg, var(--d-primary), var(--d-primary))' }}
+              className="px-10 py-3.5 rounded-lg font-semibold text-sm text-white shadow-md flex items-center gap-2 mx-auto bg-gray-900 hover:bg-gray-800 transition-colors"
             >
-              Get SketchUp Course — Free
+              Start Free Today
               <ArrowRight className="h-4 w-4" />
             </motion.button>
             <p className="text-[10px] text-gray-400 font-medium mt-3">Free access · Instant access · No hidden fees</p>
@@ -611,36 +637,23 @@ export default function LandingPage() {
         />
       </div>
 
-      {/* ─── SPARKLES TRUST BANNER ─── */}
-      <div className="relative w-full overflow-hidden bg-[#0a0f0d]" style={{ height: '220px' }}>
-        {/* Radial glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--d-primary)_0%,transparent_70%)] opacity-70" />
-        {/* Sparkles layer — z-10 so it sits above background but below text */}
-        <SparklesEffect
-          density={900}
-          speed={0.8}
-          opacity={0.75}
-          size={1}
-          color="#4ade80"
-          className="z-10"
-        />
-        {/* Content — z-20 sits above sparkles */}
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 px-4 text-center">
-          <p className="text-[11px] font-black uppercase tracking-[0.25em] text-primary/80">
-            Trusted by 12,347 students worldwide
-          </p>
-          <p className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
-            Go from zero to <span className="text-primary">SketchUp confident</span> in days
-          </p>
-          <p className="text-[12px] text-white/40 font-medium max-w-sm">
-            Free access · Instant access · No hidden fees
-          </p>
-        </div>
+      {/* ─── TRUST BANNER ─── */}
+      <div className="w-full bg-gray-50 border-y border-gray-100 py-10 px-4 text-center">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">
+          Trusted by 12,347 students worldwide
+        </p>
+        <p className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight leading-tight">
+          Go from zero to <span className="text-gray-500">SketchUp confident</span> in days
+        </p>
+        <p className="text-[12px] text-gray-400 font-medium max-w-sm mx-auto mt-2">
+          Free access · Instant access · No hidden fees
+        </p>
       </div>
+
 
       {/* ─── HOW TO EARN ─── */}
       <motion.section
-        className="py-10 sm:py-16 px-5 sm:px-6 bg-secondary/30"
+        className="py-10 sm:py-16 px-5 sm:px-6 bg-white"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.15, margin: "-50px" }}
@@ -648,8 +661,8 @@ export default function LandingPage() {
       >
         <div className="container mx-auto max-w-2xl">
           <motion.div className="text-center mb-6" variants={sectionVariants}>
-            <h2 className="text-2xl sm:text-3xl  font-extrabold tracking-tight text-foreground leading-tight">
-              How to <span className="text-primary">Get Started</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-900 leading-tight">
+              How to <span className="text-gray-900">Get Started</span>
             </h2>
           </motion.div>
 
@@ -673,11 +686,11 @@ export default function LandingPage() {
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 className="rounded-2xl border border-border/30 bg-white p-4 sm:p-5 text-center shadow-soft hover:shadow-md transition-all touch-manipulation"
               >
-                <div className="h-9 w-9 rounded-full bg-accent text-white flex items-center justify-center mx-auto mb-3 text-[12px] font-black">
+                <div className="h-9 w-9 rounded-full bg-gray-900 text-white flex items-center justify-center mx-auto mb-3 text-[12px] font-bold">
                   {item.step}
                 </div>
-                <p className=" font-extrabold text-sm text-foreground mb-1">{item.title}</p>
-                <p className="text-[11px] text-muted-foreground leading-snug">{item.desc}</p>
+                <p className="font-extrabold text-sm text-gray-900 mb-1">{item.title}</p>
+                <p className="text-[11px] text-gray-500 leading-snug">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -694,10 +707,10 @@ export default function LandingPage() {
       >
         <div className="container mx-auto max-w-xl">
           <motion.div className="text-center mb-6" variants={sectionVariants}>
-            <h2 className="text-2xl sm:text-3xl  font-extrabold tracking-tight text-foreground leading-tight">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-900 leading-tight">
               Everything Included
             </h2>
-            <p className="text-lg sm:text-xl font-bold text-primary mt-2">Free — Instant Access</p>
+            <p className="text-lg sm:text-xl font-bold text-gray-900 mt-2">Free — Instant Access</p>
           </motion.div>
 
           <motion.div
@@ -720,24 +733,13 @@ export default function LandingPage() {
                 variants={itemVariants}
                 className="flex items-center gap-3.5 rounded-xl border border-border/30 bg-white px-4 py-3 shadow-soft"
               >
-                <item.icon className="h-4 w-4 text-accent flex-shrink-0" />
-                <p className="text-[13.5px] font-medium text-foreground">{item.text}</p>
+                <item.icon className="h-4 w-4 text-gray-500 flex-shrink-0" />
+                <p className="text-[13.5px] font-medium text-gray-800">{item.text}</p>
               </motion.div>
             ))}
           </motion.div>
 
-          <motion.div variants={itemVariants} className="text-center mt-7">
-            <InlineOfferTimer />
-            <motion.button
-              whileHover={{ scale: 1.04, y: -1 }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              onClick={() => handleEnrollClick()}
-              className="px-10 py-4 rounded-full font-bold text-[11px] uppercase tracking-[0.18em] btn-primary text-white shadow-lg cta-breathe"
-            >
-              Get SketchUp Course — Free
-            </motion.button>
-          </motion.div>
+
         </div>
       </motion.section>
 
@@ -758,8 +760,8 @@ export default function LandingPage() {
         variants={sectionVariants}
       >
         <div className="container mx-auto max-w-xl text-center">
-          <h2 className="text-xl sm:text-2xl  font-extrabold tracking-tight text-foreground">
-            Your SketchUp course is waiting. Register for free.
+          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-gray-900">
+            Start Free Today
           </h2>
           <InlineOfferTimer />
           <motion.button
@@ -767,33 +769,51 @@ export default function LandingPage() {
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
             onClick={() => handleEnrollClick()}
-            className="mt-5 px-10 py-4 rounded-full font-bold text-[11px] uppercase tracking-[0.18em] btn-primary text-white shadow-lg cta-breathe"
+            className="mt-5 px-10 py-3.5 rounded-lg font-semibold text-sm text-white shadow-md bg-gray-900 hover:bg-gray-800 transition-colors"
           >
-            Get SketchUp Course — ₹99
+            Start Free Today
           </motion.button>
         </div>
       </motion.section>
 
-      {/* ─── ENROLLMENT POPUP ─── */}
-      <Dialog open={enrollOpen} onOpenChange={setEnrollOpen}>
-        <DialogContent className="sm:max-w-md rounded-2xl mx-4 border-border/40 shadow-lift bg-white p-0 overflow-hidden">
-          <div className="p-6 sm:p-8">
-            <DialogHeader className="mb-6">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="h-8 w-8 rounded-lg btn-primary flex items-center justify-center">
-                  <Sparkles className="h-4 w-4 text-white" />
-                </div>
-                <DialogTitle className="text-lg  font-bold text-foreground">Get Your SketchUp Course</DialogTitle>
+      {/* ─── ENROLLMENT SLIDE-UP PANEL ─── */}
+      <AnimatePresence>
+        {enrollOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50"
+              onClick={() => setEnrollOpen(false)}
+            />
+            {/* Slide-up panel */}
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-2xl shadow-2xl max-h-[85vh] overflow-y-auto"
+            >
+              <div className="px-5 pt-3 pb-1 flex justify-center">
+                <div className="w-10 h-1 rounded-full bg-gray-300" />
               </div>
-              <p className="text-sm text-muted-foreground">Join 12,347 students — just ₹99, one-time payment</p>
-            </DialogHeader>
-            <EnrollmentForm />
-          </div>
-        </DialogContent>
-      </Dialog>
+              <div className="px-5 sm:px-8 pb-8 pt-2">
+                <div className="mb-5">
+                  <h3 className="text-lg font-bold text-gray-900">Start Free Today</h3>
+                  <p className="text-sm text-gray-500 mt-1">Our team will contact and help you with installation, along with free 3D Models and textures.</p>
+                </div>
+                <EnrollmentForm />
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* ─── TIMER ─── */}
-      <EvergreenTimer onCtaClick={() => handleEnrollClick()} />
+      {!enrollOpen && <EvergreenTimer onCtaClick={() => handleEnrollClick()} />}
 
       {/* ─── FOOTER ─── */}
       <motion.footer
@@ -806,7 +826,7 @@ export default function LandingPage() {
         <div className="container mx-auto max-w-6xl text-center">
           <div className="flex flex-col items-center gap-4">
             <img src={logo} alt="Logo" className="h-8 w-auto" />
-            <div className="text-[10px] text-muted-foreground/50 flex flex-col gap-1">
+            <div className="text-[10px] text-gray-400 flex flex-col gap-1">
               <p>© 2025 Avada. All rights reserved.</p>
               <p className="flex items-center justify-center gap-1 uppercase tracking-widest">
                 <Shield className="h-2.5 w-2.5" /> Secure & Certified Learning Platform

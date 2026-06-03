@@ -35,7 +35,7 @@ export function TestimonialCard({
         className
       )}
     >
-      <p className="text-[13.5px] leading-relaxed text-muted-foreground mb-5">
+      <p className="text-[13.5px] leading-relaxed text-gray-600 mb-5">
         "{text}"
       </p>
       <div className="flex items-center gap-3 mt-auto pt-4 border-t border-border/30">
@@ -43,10 +43,10 @@ export function TestimonialCard({
           <AvatarImage src={author.avatar} alt={author.name} />
         </Avatar>
         <div className="flex flex-col">
-          <h3 className="text-sm font-semibold leading-none text-foreground">
+          <h3 className="text-sm font-semibold leading-none text-gray-900">
             {author.name}
           </h3>
-          <p className="text-xs text-muted-foreground mt-0.5">
+          <p className="text-xs text-gray-500 mt-0.5">
             {author.handle}
           </p>
         </div>

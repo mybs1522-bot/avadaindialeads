@@ -1,5 +1,11 @@
 "use client";
 
+declare global {
+  interface Window {
+    Razorpay: new (options: Record<string, unknown>) => { open: () => void; on: (event: string, cb: () => void) => void };
+  }
+}
+
 import React, { useState, useCallback } from "react";
 import {
   Dialog,
