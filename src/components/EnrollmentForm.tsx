@@ -85,64 +85,6 @@ export function EnrollmentForm() {
     )
     : COUNTRY_CODES;
 
-  const openRazorpay = (orderId: string, amountPaise: number, keyId: string) => {
-    const options = {
-      key: keyId,
-      amount: amountPaise,
-      currency: "INR",
-      name: "SketchUp Course",
-      description: "Complete SketchUp Course — ₹99",
-      order_id: orderId,
-      prefill: {
-        name: form.full_name,
-        email: form.email,
-        contact: `${countryCode}${form.phone.replace(/[^0-9]/g, "")}`,
-      },
-      theme: { color: "#16a34a" },
-      handler: async (response: { razorpay_order_id: string; razorpay_payment_id: string; razorpay_signature: string }) => {
-        try {
-          const { error: verifyError } = await supabase.functions.invoke("razorpay-verify-payment", {
-            body: {
-              razorpay_order_id: response.razorpay_order_id,
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_signature: response.razorpay_signature,
-              plan_type: "main",
-            },
-          });
-          if (verifyError) throw verifyError;
-
-          supabase.functions.invoke("send-welcome-email", {
-            body: { email: form.email, name: form.full_name, password: "" },
-          }).catch((err) => console.warn("Welcome email failed:", err));
-
-          if (typeof window.fbq === 'function') {
-            window.fbq('track', 'Purchase', { value: 99, currency: 'INR' });
-          }
-
-          setSubmitted(true);
-        } catch {
-          toast({ title: "Payment verification failed", description: "Please contact support if amount was deducted.", variant: "destructive" });
-        } finally {
-          setLoading(false);
-        }
-      },
-      modal: {
-        ondismiss: () => setLoading(false),
-      },
-    };
-
-    if (typeof window.fbq === 'function') {
-      window.fbq('track', 'InitiateCheckout');
-    }
-
-    const rzp = new window.Razorpay(options);
-    rzp.on("payment.failed", () => {
-      toast({ title: "Payment failed", description: "Please try again.", variant: "destructive" });
-      setLoading(false);
-    });
-    rzp.open();
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const digits = form.phone.replace(/[^0-9]/g, "");
@@ -153,30 +95,19 @@ export function EnrollmentForm() {
     setLoading(true);
 
     const fullPhone = `${countryCode} ${form.phone}`;
-    const password = Math.random().toString(36).slice(-8) + "ID#2024";
 
     try {
-      // Step 1: Sign up
-      const { error } = await supabase.auth.signUp({
+      const { error: dbError } = await supabase.from("leads").insert({
+        name: form.full_name.trim(),
+        phone: fullPhone,
         email: form.email,
-        password,
-        options: {
-          data: {
-            full_name: form.full_name,
-            phone: fullPhone,
-            experience_level: form.experience_level,
-          },
-          emailRedirectTo: window.location.origin,
-        },
+        source: "sketchup_free_course",
+        status: "new",
+        created_at: new Date().toISOString(),
       });
 
-      if (error) {
-        if (error.message.includes("already registered")) {
-          toast({ title: "Account exists", description: "Please use the login form instead.", variant: "destructive" });
-          setLoading(false);
-          return;
-        }
-        throw error;
+      if (dbError) {
+        throw dbError;
       }
 
       if (typeof window.fbq === 'function') {
@@ -184,25 +115,11 @@ export function EnrollmentForm() {
         window.fbq('track', 'CompleteRegistration');
       }
 
-      // Step 2: Sign in to get auth token for edge functions
-      await supabase.auth.signInWithPassword({ email: form.email, password });
-
-      // Step 3: Create Razorpay order
-      const { data: orderData, error: orderError } = await supabase.functions.invoke("razorpay-create-order", {
-        body: { amount: 99 },
+      setSubmitted(true);
+      toast({
+        title: "Registration Successful!",
+        description: "Welcome! Our team will connect with you shortly.",
       });
-
-      if (orderError) {
-        console.error("Razorpay order error:", orderError);
-        throw new Error(typeof orderError === "object" && orderError.message ? orderError.message : "Payment service error. Please try again.");
-      }
-      if (!orderData?.order_id) {
-        console.error("Razorpay order response:", orderData);
-        throw new Error(orderData?.error || "Could not create payment order. Please try again.");
-      }
-
-      // Step 4: Open Razorpay checkout
-      openRazorpay(orderData.order_id, orderData.amount, orderData.key_id || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID);
 
     } catch (err: unknown) {
       toast({
@@ -225,7 +142,7 @@ export function EnrollmentForm() {
         <div className="h-16 w-16 rounded-full bg-accent/10 flex items-center justify-center">
           <CheckCircle className="h-8 w-8 text-accent" />
         </div>
-        <h3 className="text-2xl font-black text-foreground">Payment Successful!</h3>
+        <h3 className="text-2xl font-black text-foreground">Registration Successful!</h3>
         <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
           Keep your phone close — our mentor will connect with you and help you start with the course.
         </p>
@@ -361,18 +278,27 @@ export function EnrollmentForm() {
             <span className="font-black tabular-nums text-emerald-800">{formatInlineTimer(timeLeft)}</span>
           </div>
         </div>
+        {/* Form Submission Button */}
         <Button
           type="submit"
           disabled={loading}
-          className="w-full h-14 rounded-xl btn-primary text-[13px] font-bold tracking-wide shadow-green-lg hover:scale-[1.01] active:scale-[0.98] transition-all border-0 flex items-center justify-center gap-2.5"
+          className="w-full h-14 rounded-xl text-[15px] font-bold text-white shadow-lift hover:shadow-green-lg transition-all duration-300 relative overflow-hidden group border-0"
+          style={{
+            background: 'linear-gradient(135deg, hsl(152, 56%, 40%) 0%, hsl(152, 60%, 30%) 100%)',
+          }}
         >
-          {loading ? (
-            <><Loader2 className="h-5 w-5 animate-spin" />Processing...</>
-          ) : (
-            <>Pay ₹99 & Start Learning <ArrowRight className="h-4 w-4" /></>
-          )}
+          <span className="relative z-10 flex items-center justify-center gap-2">
+            {loading ? (
+              <Loader2 className="h-5 w-5 animate-spin" />
+            ) : (
+              <>
+                Enroll for Free
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </>
+            )}
+          </span>
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity bg-white" />
         </Button>
-
       </motion.div>
     </motion.form>
   );

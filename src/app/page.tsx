@@ -64,7 +64,7 @@ const stats = [
   { value: "12,347", label: "Students worldwide" },
   { value: "4.8/5", label: "Average rating" },
   { value: "6hrs", label: "To complete" },
-  { value: "₹99", label: "One-time price" },
+  { value: "Free", label: "Limited time offer" },
 ];
 
 const outcomes = [
@@ -93,7 +93,7 @@ const faqs = [
   { q: "I have absolutely zero experience — will I actually be able to do this?", a: "That's exactly who this was built for. 78% of our students had zero design background when they started. The course is step-by-step — we don't skip anything. You'll go from 'I don't know where to start' to modeling your first room in under a week." },
   { q: "How quickly will I see results?", a: "Most students model their first complete room within 5 days. By the end of the course, you'll have portfolio-ready projects and the confidence to take on real client work." },
   { q: "I've already tried other courses and they didn't work", a: "Most courses teach you one tool, then leave you stranded. No structure, no real projects. This course gives you the complete system — SketchUp modeling, floor plans, 3D walkthroughs, and real project files to practice with. It's designed to make you job-ready." },
-  { q: "Why is it only ₹99?", a: "We believe world-class SketchUp education shouldn't cost ₹10,000+. For just ₹99, you get the full course, downloadable project files, and our team personally helps you get started. No hidden charges, no upsells — ever." },
+  { q: "Why is it free?", a: "We believe world-class SketchUp education shouldn't cost ₹10,000+. For a limited time, you get the full course, downloadable project files, and our team personally helps you get started. No hidden charges, no upsells - ever." },
   { q: "What if I get stuck?", a: "Our team will personally call you and help you get started. You're never alone — we're here to make sure you succeed." },
 ];
 
@@ -159,7 +159,7 @@ export default function LandingPage() {
 
   useEffect(() => {
     if (typeof window.fbq === 'function') {
-      window.fbq('track', 'ViewContent', { content_name: 'SketchUp Course Landing Page', value: 99, currency: 'INR' });
+      window.fbq('track', 'ViewContent', { content_name: 'SketchUp Course Landing Page', value: 0, currency: 'INR' });
     }
 
     const hideTawk = () => {
@@ -178,7 +178,7 @@ export default function LandingPage() {
 
   const handleEnrollClick = () => {
     if (typeof window.fbq === 'function') {
-      window.fbq('track', 'AddToCart', { value: 99, currency: 'INR', content_name: 'SketchUp Course' });
+      window.fbq('track', 'AddToCart', { value: 0, currency: 'INR', content_name: 'SketchUp Course' });
     }
     setEnrollOpen(true);
   };
@@ -206,7 +206,7 @@ export default function LandingPage() {
             className="inline-flex max-w-full items-center gap-2 rounded-full px-4 sm:px-5 py-2 mb-4 border whitespace-nowrap" style={{ background: 'hsl(152,56%,40%,0.06)', borderColor: 'hsl(152,56%,40%,0.2)' }}
           >
             <CheckCircle className="h-3.5 w-3.5 flex-shrink-0" style={{ color: 'hsl(152,56%,40%)' }} />
-            <span className="text-[10px] sm:text-[11px] font-bold tracking-wide whitespace-nowrap" style={{ color: 'hsl(152,56%,32%)' }}>Limited Offer — Just ₹99</span>
+            <span className="text-[10px] sm:text-[11px] font-bold tracking-wide whitespace-nowrap" style={{ color: 'hsl(152,56%,32%)' }}>Limited Offer — Free Access</span>
           </motion.div>
 
           {/* Aspirational hook */}
@@ -241,7 +241,7 @@ export default function LandingPage() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1] mb-5"
             style={{ color: 'hsl(152,56%,40%)' }}
           >
-            Start at Just ₹99.
+            Start for Free.
           </motion.h2>
 
           {/* Value proposition */}
@@ -255,7 +255,7 @@ export default function LandingPage() {
               Go from zero to designing stunning 3D interiors & exteriors — step by step
             </p>
             <p className="text-gray-600 text-xs sm:text-sm font-medium">
-              One-time payment. No monthly fees. No upsells. Just results.
+              Free access. No subscriptions. No upsells. Just results.
             </p>
           </motion.div>
 
@@ -299,7 +299,7 @@ export default function LandingPage() {
             <div className="rounded-xl bg-emerald-50/80 border border-emerald-200/40 p-3 sm:p-4 flex items-start gap-2.5">
               <span className="text-lg flex-shrink-0 mt-0.5">🚀</span>
               <p className="text-xs sm:text-[13px] text-gray-600 leading-snug">
-                12,347 students have already enrolled at ₹99. No subscriptions, no hidden fees — just{' '}
+                12,347 students have already enrolled for free. No subscriptions, no hidden fees — just{' '}
                 <span className="font-bold" style={{ color: 'hsl(152,56%,40%)' }}>a complete SketchUp education that actually works.</span>
               </p>
             </div>
@@ -321,11 +321,11 @@ export default function LandingPage() {
               className="px-12 py-5 rounded-full font-bold text-sm sm:text-base uppercase tracking-wider text-white shadow-green-lg flex items-center gap-3 cta-breathe touch-manipulation"
               style={{ background: 'linear-gradient(135deg, hsl(152,56%,42%), hsl(152,56%,32%))' }}
             >
-              Get SketchUp Course — ₹99
+              Get SketchUp Course — Free
               <ArrowRight className="h-5 w-5" />
             </motion.button>
             <p className="text-[10px] text-gray-400 font-medium tracking-wide">
-              One-time payment · Instant access · No hidden fees
+              Free access · Instant access · No hidden fees
             </p>
           </motion.div>
 
@@ -590,10 +590,10 @@ export default function LandingPage() {
               className="px-10 py-4 rounded-full font-bold text-[12px] uppercase tracking-[0.15em] text-white shadow-green-lg flex items-center gap-2 mx-auto cta-breathe"
               style={{ background: 'linear-gradient(135deg, hsl(152,56%,42%), hsl(152,56%,32%))' }}
             >
-              Get SketchUp Course — ₹99
+              Get SketchUp Course — Free
               <ArrowRight className="h-4 w-4" />
             </motion.button>
-            <p className="text-[10px] text-gray-400 font-medium mt-3">One-time payment · Instant access · No hidden fees</p>
+            <p className="text-[10px] text-gray-400 font-medium mt-3">Free access · Instant access · No hidden fees</p>
           </motion.div>
         </div>
       </motion.section>
@@ -633,7 +633,7 @@ export default function LandingPage() {
             Go from zero to <span className="text-emerald-400">SketchUp confident</span> in days
           </p>
           <p className="text-[12px] text-white/40 font-medium max-w-sm">
-            Just ₹99 · One-time payment · Instant access
+            Free access · Instant access · No hidden fees
           </p>
         </div>
       </div>
@@ -662,7 +662,7 @@ export default function LandingPage() {
           >
             {[
               { step: "1", title: "Sign Up", desc: "Enter your name & email — takes 30 seconds" },
-              { step: "2", title: "Pay ₹99", desc: "One-time payment — no subscriptions, no hidden fees" },
+              { step: "2", title: "Free Access", desc: "Enroll instantly — no subscriptions, no hidden fees" },
               { step: "3", title: "Watch", desc: "Follow clear, step-by-step video lessons" },
               { step: "4", title: "Create", desc: "Model rooms, spaces & designs with confidence" },
             ].map((item) => (
@@ -697,7 +697,7 @@ export default function LandingPage() {
             <h2 className="text-2xl sm:text-3xl font-display font-extrabold tracking-tight text-foreground leading-tight">
               Everything Included
             </h2>
-            <p className="text-lg sm:text-xl font-bold text-green-gradient mt-2">Just ₹99 — One-Time Payment</p>
+            <p className="text-lg sm:text-xl font-bold text-green-gradient mt-2">Free — Instant Access</p>
           </motion.div>
 
           <motion.div
@@ -735,7 +735,7 @@ export default function LandingPage() {
               onClick={() => handleEnrollClick()}
               className="px-10 py-4 rounded-full font-bold text-[11px] uppercase tracking-[0.18em] btn-primary text-white shadow-green-lg cta-breathe"
             >
-              Get SketchUp Course — ₹99
+              Get SketchUp Course — Free
             </motion.button>
           </motion.div>
         </div>
@@ -759,7 +759,7 @@ export default function LandingPage() {
       >
         <div className="container mx-auto max-w-xl text-center">
           <h2 className="text-xl sm:text-2xl font-display font-extrabold tracking-tight text-foreground">
-            Your SketchUp course is waiting. Just ₹99.
+            Your SketchUp course is waiting. Register for free.
           </h2>
           <InlineOfferTimer />
           <motion.button
