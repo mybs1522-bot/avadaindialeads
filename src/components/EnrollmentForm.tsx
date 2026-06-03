@@ -17,11 +17,6 @@ declare global {
   }
 }
 
-const levels = [
-  { value: "beginner", label: "Complete Beginner", emoji: "🌱" },
-  { value: "some_idea", label: "Some Experience", emoji: "🎯" },
-];
-
 const INLINE_TIMER_TOTAL_SECONDS = 2 * 3600 + 27 * 60 + 32;
 const INLINE_TIMER_STORAGE_KEY = "landing_inline_trial_timer_start";
 
@@ -53,9 +48,7 @@ export function EnrollmentForm() {
   const [timeLeft, setTimeLeft] = useState(getInlineTimerTimeLeft);
   const [form, setForm] = useState({
     full_name: "",
-    email: "",
     phone: "",
-    experience_level: "beginner",
   });
   const { toast } = useToast();
   const router = useRouter();
@@ -93,14 +86,12 @@ export function EnrollmentForm() {
       return;
     }
     setLoading(true);
-
     const fullPhone = `${countryCode} ${form.phone}`;
 
     try {
       const { error: dbError } = await supabase.from("leads").insert({
         name: form.full_name.trim(),
         phone: fullPhone,
-        email: form.email,
         source: "sketchup_free_course",
         status: "new",
         created_at: new Date().toISOString(),
@@ -109,7 +100,6 @@ export function EnrollmentForm() {
       if (dbError) {
         throw dbError;
       }
-
       if (typeof window.fbq === 'function') {
         window.fbq('track', 'Lead');
         window.fbq('track', 'CompleteRegistration');
@@ -167,18 +157,6 @@ export function EnrollmentForm() {
         onChange={handleChange}
         required
         icon={<User />}
-      />
-
-      <PremiumInput
-        id="email"
-        name="email"
-        label="Email Address"
-        type="email"
-        placeholder="your@email.com"
-        value={form.email}
-        onChange={handleChange}
-        required
-        icon={<Mail />}
       />
 
       <motion.div variants={itemVariants} className={`space-y-1.5 pt-1 ${showCountryPicker ? "relative z-50" : ""}`}>
@@ -249,26 +227,6 @@ export function EnrollmentForm() {
         {form.phone.length > 0 && form.phone.replace(/[^0-9]/g, "").length < 6 && (
           <p className="text-[10px] font-bold text-destructive ml-1">Please enter a valid phone number</p>
         )}
-      </motion.div>
-
-      <motion.div variants={itemVariants} className="space-y-3 pt-2">
-        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60 ml-1">Select Skill Level</label>
-        <div className="grid grid-cols-2 gap-3">
-          {levels.map((l) => (
-            <button
-              key={l.value}
-              type="button"
-              onClick={() => setForm((f) => ({ ...f, experience_level: l.value }))}
-              className={`p-4 rounded-xl border text-[13px] font-bold transition-all duration-300 flex items-center justify-center gap-2.5 shadow-sm ${form.experience_level === l.value
-                ? "border-accent bg-accent/5 text-accent shadow-glow"
-                : "border-border bg-background text-muted-foreground hover:border-accent/20 hover:bg-secondary/10"
-                }`}
-            >
-              <span className="text-xl">{l.emoji}</span>
-              {l.label}
-            </button>
-          ))}
-        </div>
       </motion.div>
 
       <motion.div variants={itemVariants} className="pt-4">
