@@ -40,7 +40,7 @@ export async function sendEmailOtpAction(email: string) {
     const resend = new Resend(resendApiKey);
     
     const { error: resendError } = await resend.emails.send({
-      from: "onboarding@resend.dev", // Using Resend's testing email to avoid domain verification errors
+      from: "Avada India <otp@avada.space>",
       to: [email.trim().toLowerCase()],
       subject: "Your Verification Code - Avada India",
       html: `
