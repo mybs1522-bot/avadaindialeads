@@ -242,7 +242,7 @@ export function EnrollmentForm() {
           disabled={loading}
           className="w-full h-14 rounded-xl text-[15px] font-bold text-white shadow-lift hover:shadow-lg transition-all duration-300 relative overflow-hidden group border-0"
           style={{
-            background: 'linear-gradient(135deg, var(--d-primary) 0%, hsl(152, 60%, 30%) 100%)',
+            background: 'var(--d-primary)',
           }}
         >
           <span className="relative z-10 flex items-center justify-center gap-2">

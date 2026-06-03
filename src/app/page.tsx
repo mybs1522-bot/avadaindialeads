@@ -614,7 +614,7 @@ export default function LandingPage() {
       {/* ─── SPARKLES TRUST BANNER ─── */}
       <div className="relative w-full overflow-hidden bg-[#0a0f0d]" style={{ height: '220px' }}>
         {/* Radial glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,#1a4d32_0%,transparent_70%)] opacity-70" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--d-primary)_0%,transparent_70%)] opacity-70" />
         {/* Sparkles layer — z-10 so it sits above background but below text */}
         <SparklesEffect
           density={900}

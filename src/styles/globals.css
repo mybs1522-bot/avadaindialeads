@@ -143,10 +143,6 @@
   --color-success: var(--d-success);
   --color-destructive: var(--d-destructive);
   --color-link: var(--d-link);
-
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --font-heading: var(--font-sans);
 }
 
 @layer base {
@@ -163,7 +159,7 @@
   }
 
   body {
-    @apply overscroll-none bg-background font-sans text-foreground antialiased;
+    @apply overscroll-none bg-background text-foreground antialiased;
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
   }
@@ -207,7 +203,7 @@
   }
 
   code {
-    @apply font-mono text-sm;
+    @apply text-sm;
   }
 
   [data-line] {
@@ -255,7 +251,7 @@
   @apply before:bg-zinc-50 dark:before:bg-zinc-900;
 
   &::before {
-    @apply mr-2 inline-flex size-8 items-center justify-center rounded-full border text-center -indent-px font-mono text-sm font-medium shadow-xs md:absolute md:-mt-0.5 md:-ml-11.5;
+    @apply mr-2 inline-flex size-8 items-center justify-center rounded-full border text-center -indent-px text-sm font-medium shadow-xs md:absolute md:-mt-0.5 md:-ml-11.5;
     content: counter(step);
   }
 }
@@ -314,62 +310,74 @@
     transform: translateY(-2px);
   }
 
-  /* ??? Green gradient text ??? */
   .text-green-gradient {
-    color: var(--d-primary);
+    background: linear-gradient(135deg, var(--d-primary), var(--d-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  /* Legacy gold gradient ? now green */
+  /* Legacy gold gradient → now green */
   .text-gold-gradient {
-    color: var(--d-primary);
+    background: linear-gradient(135deg, var(--d-primary), var(--d-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
+  /* ─── Premium CTA button ─── */
   .btn-primary {
-    background: var(--d-primary);
-    color: var(--d-primary-foreground);
+    @apply w-full rounded-xl bg-primary px-4 font-bold tracking-wide text-primary-foreground;
+    height: 54px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.1);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .btn-primary:hover {
-    box-shadow: 0 8px 32px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
-    transform: translateY(-2px);
-    opacity: 0.9;
-  }
-
-  .btn-primary:active {
-    transform: translateY(0) scale(0.98);
-  }
-
-  /* Legacy btn-gold → now green */
-  .btn-gold {
-    background: var(--d-primary);
-    color: var(--d-primary-foreground);
+    @apply bg-primary/90 text-primary-foreground;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.1);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
+  .btn-gold {
+    @apply w-full rounded-xl bg-primary px-4 font-bold tracking-wide text-primary-foreground;
+    height: 54px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
   .btn-gold:hover {
-    box-shadow: 0 8px 32px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
-    transform: translateY(-2px);
-    opacity: 0.9;
+    @apply bg-primary/90 text-primary-foreground;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .btn-gold:active {
-    transform: translateY(0) scale(0.98);
-  }
-
-  /* ─── Dark CTA button ─── */
   .btn-dark {
-    background: linear-gradient(135deg, hsl(160, 10%, 8%) 0%, hsl(160, 10%, 4%) 100%);
-    color: white;
-    box-shadow: 0 4px 20px hsl(160 10% 4% / 0.4);
+    @apply w-full rounded-xl bg-foreground px-4 font-bold tracking-wide text-background;
+    height: 54px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .btn-dark:hover {
-    box-shadow: 0 8px 32px hsl(160 10% 4% / 0.6);
-    transform: translateY(-2px);
+    @apply bg-foreground/90 text-background;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* ─── Label accents ─── */
+  .label-accent {
+    @apply text-[10px] font-black tracking-[0.2em] uppercase text-accent;
+  }
+
+  /* ─── Section heading ─── */
+  .section-heading {
+    @apply font-bold tracking-tight text-foreground;
+  }
+
+  /* ─── Serif accent ─── */
+  .serif-accent {
+    @apply italic font-bold;
   }
 
   /* ??? Shadow utilities ??? */
@@ -429,7 +437,7 @@
 
   .card-gold-hover:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 50px hsl(152 56% 40% / 0.12);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
   }
 
   /* ??? Label accents ??? */
