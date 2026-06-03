@@ -51,6 +51,7 @@
     "react-dom": "19.1.0",
     "react-markdown": "^10.0.0",
     "react-use": "^17.6.0",
+    "resend": "^6.12.4",
     "schema-dts": "^1.1.2",
     "shadcn": "2.4.0-canary.17",
     "sonner": "^2.0.1",
