@@ -22,11 +22,7 @@ import {
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
-declare global {
-  interface Window {
-    Razorpay: any;
-  }
-}
+
 
 const FEATURES = [
   "9 Premium Courses",
