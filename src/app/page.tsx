@@ -144,10 +144,10 @@ function InlineOfferTimer() {
   }, []);
 
   return (
-    <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-emerald-200/70 bg-emerald-50/70 px-3 py-1.5 text-[11px] font-semibold text-emerald-700">
+    <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-border bg-accent/10 px-3 py-1.5 text-[11px] font-semibold text-primary">
       <Clock className="h-3.5 w-3.5 flex-shrink-0" />
       <span>Offer closing in</span>
-      <span className="font-black tabular-nums text-emerald-800">{formatInlineTimer(timeLeft)}</span>
+      <span className="font-black tabular-nums text-primary">{formatInlineTimer(timeLeft)}</span>
     </div>
   );
 }
@@ -195,7 +195,7 @@ export default function LandingPage() {
         transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         {/* Subtle radial glow */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, hsl(152,56%,40%,0.06) 0%, transparent 60%)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, var(--d-primary) 0%, transparent 60%)' }} />
 
         <div className="container mx-auto max-w-5xl px-0 sm:px-0 relative z-10">
           {/* Top pill badge — PAIN POINT */}
@@ -203,10 +203,10 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="inline-flex max-w-full items-center gap-2 rounded-full px-4 sm:px-5 py-2 mb-4 border whitespace-nowrap" style={{ background: 'hsl(152,56%,40%,0.06)', borderColor: 'hsl(152,56%,40%,0.2)' }}
+            className="inline-flex max-w-full items-center gap-2 rounded-full px-4 sm:px-5 py-2 mb-4 border whitespace-nowrap" style={{ background: 'var(--d-primary)', borderColor: 'var(--d-primary)' }}
           >
-            <CheckCircle className="h-3.5 w-3.5 flex-shrink-0" style={{ color: 'hsl(152,56%,40%)' }} />
-            <span className="text-[10px] sm:text-[11px] font-bold tracking-wide whitespace-nowrap" style={{ color: 'hsl(152,56%,32%)' }}>Limited Offer — Free Access</span>
+            <CheckCircle className="h-3.5 w-3.5 flex-shrink-0" style={{ color: 'var(--d-primary)' }} />
+            <span className="text-[10px] sm:text-[11px] font-bold tracking-wide whitespace-nowrap" style={{ color: 'var(--d-primary)' }}>Limited Offer — Free Access</span>
           </motion.div>
 
           {/* Aspirational hook */}
@@ -239,7 +239,7 @@ export default function LandingPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1] mb-5"
-            style={{ color: 'hsl(152,56%,40%)' }}
+            style={{ color: 'var(--d-primary)' }}
           >
             Start for Free.
           </motion.h2>
@@ -282,25 +282,25 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="max-w-3xl mx-auto rounded-2xl bg-gradient-to-br from-emerald-50/80 to-white border border-emerald-100/60 p-5 sm:p-6 text-left shadow-sm mb-6"
+            className="max-w-3xl mx-auto rounded-2xl bg-gradient-to-br from-accent/10 to-white border border-border p-5 sm:p-6 text-left shadow-sm mb-6"
           >
-            <p className="text-sm sm:text-base text-gray-700 italic font-serif leading-snug mb-3">
+            <p className="text-sm sm:text-base text-gray-700 italic  leading-snug mb-3">
               "SketchUp is the #1 tool architects and interior designers use every single day. <span className="underline decoration-2 decoration-gray-800 font-bold not-italic">But most people learn it the slow, painful way</span> — random YouTube videos, confusing tutorials, zero structure."
             </p>
             <div className="w-10 h-1 rounded-full bg-accent mb-3" />
             <p className="text-xs sm:text-[13px] text-gray-500 leading-snug mb-2">
               We built something different. A course that actually respects your time and gets you to…
             </p>
-            <h3 className="text-lg sm:text-xl font-black mb-3" style={{ color: 'hsl(152,56%,40%)' }}>
+            <h3 className="text-lg sm:text-xl font-black mb-3" style={{ color: 'var(--d-primary)' }}>
               "I can actually do this" — in days, not months.
             </h3>
 
             {/* Rocket callout */}
-            <div className="rounded-xl bg-emerald-50/80 border border-emerald-200/40 p-3 sm:p-4 flex items-start gap-2.5">
+            <div className="rounded-xl bg-accent/10 border border-border p-3 sm:p-4 flex items-start gap-2.5">
               <span className="text-lg flex-shrink-0 mt-0.5">🚀</span>
               <p className="text-xs sm:text-[13px] text-gray-600 leading-snug">
                 12,347 students have already enrolled for free. No subscriptions, no hidden fees — just{' '}
-                <span className="font-bold" style={{ color: 'hsl(152,56%,40%)' }}>a complete SketchUp education that actually works.</span>
+                <span className="font-bold" style={{ color: 'var(--d-primary)' }}>a complete SketchUp education that actually works.</span>
               </p>
             </div>
           </motion.div>
@@ -318,8 +318,8 @@ export default function LandingPage() {
               whileTap={{ scale: 0.96 }}
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
               onClick={() => handleEnrollClick()}
-              className="px-12 py-5 rounded-full font-bold text-sm sm:text-base uppercase tracking-wider text-white shadow-green-lg flex items-center gap-3 cta-breathe touch-manipulation"
-              style={{ background: 'linear-gradient(135deg, hsl(152,56%,42%), hsl(152,56%,32%))' }}
+              className="px-12 py-5 rounded-full font-bold text-sm sm:text-base uppercase tracking-wider text-white shadow-lg flex items-center gap-3 cta-breathe touch-manipulation"
+              style={{ background: 'linear-gradient(135deg, var(--d-primary), var(--d-primary))' }}
             >
               Get SketchUp Course — Free
               <ArrowRight className="h-5 w-5" />
@@ -410,7 +410,7 @@ export default function LandingPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight leading-tight">
               What You'll Be Able to
             </h2>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight" style={{ color: 'hsl(152,56%,40%)' }}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight" style={{ color: 'var(--d-primary)' }}>
               Do After This Course
             </h2>
           </motion.div>
@@ -466,7 +466,7 @@ export default function LandingPage() {
                 {/* Card header */}
                 <div className="flex items-start justify-between mb-3">
                   <h4 className="text-xs sm:text-[13px] font-bold text-gray-900 leading-tight pr-2">{card.title}</h4>
-                  <div className="h-10 w-10 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 text-accent">
+                  <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 text-accent">
                     <card.icon className="h-5 w-5" />
                   </div>
                 </div>
@@ -484,7 +484,7 @@ export default function LandingPage() {
                   </div>
                   {/* After */}
                   <div className="flex-1">
-                    <span className="text-[9px] font-black uppercase tracking-widest" style={{ color: 'hsl(152,56%,40%)' }}>AFTER</span>
+                    <span className="text-[9px] font-black uppercase tracking-widest" style={{ color: 'var(--d-primary)' }}>AFTER</span>
                     <p className="text-[12px] font-bold text-gray-900 mt-1 leading-snug">{card.afterText}</p>
                   </div>
                 </div>
@@ -510,7 +510,7 @@ export default function LandingPage() {
               Learning Alone
             </h2>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight mt-1">
-              vs. <span style={{ color: 'hsl(152,56%,40%)' }}>Learning With Us</span>
+              vs. <span style={{ color: 'var(--d-primary)' }}>Learning With Us</span>
             </h2>
           </motion.div>
 
@@ -552,10 +552,10 @@ export default function LandingPage() {
               variants={itemVariants}
               whileHover={{ scale: 1.01 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="rounded-2xl border border-emerald-200/60 bg-gradient-to-br from-emerald-50/40 to-white p-5 sm:p-7 lg:p-9 touch-manipulation"
+              className="rounded-2xl border border-border bg-gradient-to-br from-accent/5 to-white p-5 sm:p-7 lg:p-9 touch-manipulation"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-9 w-9 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                <div className="h-9 w-9 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
                   <CheckCircle className="h-4.5 w-4.5 text-accent" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-black text-accent tracking-tight">What You Get With Us</h3>
@@ -587,8 +587,8 @@ export default function LandingPage() {
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
               onClick={() => handleEnrollClick()}
-              className="px-10 py-4 rounded-full font-bold text-[12px] uppercase tracking-[0.15em] text-white shadow-green-lg flex items-center gap-2 mx-auto cta-breathe"
-              style={{ background: 'linear-gradient(135deg, hsl(152,56%,42%), hsl(152,56%,32%))' }}
+              className="px-10 py-4 rounded-full font-bold text-[12px] uppercase tracking-[0.15em] text-white shadow-lg flex items-center gap-2 mx-auto cta-breathe"
+              style={{ background: 'linear-gradient(135deg, var(--d-primary), var(--d-primary))' }}
             >
               Get SketchUp Course — Free
               <ArrowRight className="h-4 w-4" />
@@ -626,11 +626,11 @@ export default function LandingPage() {
         />
         {/* Content — z-20 sits above sparkles */}
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 px-4 text-center">
-          <p className="text-[11px] font-black uppercase tracking-[0.25em] text-emerald-400/80">
+          <p className="text-[11px] font-black uppercase tracking-[0.25em] text-primary/80">
             Trusted by 12,347 students worldwide
           </p>
           <p className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
-            Go from zero to <span className="text-emerald-400">SketchUp confident</span> in days
+            Go from zero to <span className="text-primary">SketchUp confident</span> in days
           </p>
           <p className="text-[12px] text-white/40 font-medium max-w-sm">
             Free access · Instant access · No hidden fees
@@ -648,8 +648,8 @@ export default function LandingPage() {
       >
         <div className="container mx-auto max-w-2xl">
           <motion.div className="text-center mb-6" variants={sectionVariants}>
-            <h2 className="text-2xl sm:text-3xl font-display font-extrabold tracking-tight text-foreground leading-tight">
-              How to <span className="text-green-gradient">Get Started</span>
+            <h2 className="text-2xl sm:text-3xl  font-extrabold tracking-tight text-foreground leading-tight">
+              How to <span className="text-primary">Get Started</span>
             </h2>
           </motion.div>
 
@@ -676,7 +676,7 @@ export default function LandingPage() {
                 <div className="h-9 w-9 rounded-full bg-accent text-white flex items-center justify-center mx-auto mb-3 text-[12px] font-black">
                   {item.step}
                 </div>
-                <p className="font-display font-extrabold text-sm text-foreground mb-1">{item.title}</p>
+                <p className=" font-extrabold text-sm text-foreground mb-1">{item.title}</p>
                 <p className="text-[11px] text-muted-foreground leading-snug">{item.desc}</p>
               </motion.div>
             ))}
@@ -694,10 +694,10 @@ export default function LandingPage() {
       >
         <div className="container mx-auto max-w-xl">
           <motion.div className="text-center mb-6" variants={sectionVariants}>
-            <h2 className="text-2xl sm:text-3xl font-display font-extrabold tracking-tight text-foreground leading-tight">
+            <h2 className="text-2xl sm:text-3xl  font-extrabold tracking-tight text-foreground leading-tight">
               Everything Included
             </h2>
-            <p className="text-lg sm:text-xl font-bold text-green-gradient mt-2">Free — Instant Access</p>
+            <p className="text-lg sm:text-xl font-bold text-primary mt-2">Free — Instant Access</p>
           </motion.div>
 
           <motion.div
@@ -733,7 +733,7 @@ export default function LandingPage() {
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
               onClick={() => handleEnrollClick()}
-              className="px-10 py-4 rounded-full font-bold text-[11px] uppercase tracking-[0.18em] btn-primary text-white shadow-green-lg cta-breathe"
+              className="px-10 py-4 rounded-full font-bold text-[11px] uppercase tracking-[0.18em] btn-primary text-white shadow-lg cta-breathe"
             >
               Get SketchUp Course — Free
             </motion.button>
@@ -758,7 +758,7 @@ export default function LandingPage() {
         variants={sectionVariants}
       >
         <div className="container mx-auto max-w-xl text-center">
-          <h2 className="text-xl sm:text-2xl font-display font-extrabold tracking-tight text-foreground">
+          <h2 className="text-xl sm:text-2xl  font-extrabold tracking-tight text-foreground">
             Your SketchUp course is waiting. Register for free.
           </h2>
           <InlineOfferTimer />
@@ -767,7 +767,7 @@ export default function LandingPage() {
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
             onClick={() => handleEnrollClick()}
-            className="mt-5 px-10 py-4 rounded-full font-bold text-[11px] uppercase tracking-[0.18em] btn-primary text-white shadow-green-lg cta-breathe"
+            className="mt-5 px-10 py-4 rounded-full font-bold text-[11px] uppercase tracking-[0.18em] btn-primary text-white shadow-lg cta-breathe"
           >
             Get SketchUp Course — ₹99
           </motion.button>
@@ -783,7 +783,7 @@ export default function LandingPage() {
                 <div className="h-8 w-8 rounded-lg btn-primary flex items-center justify-center">
                   <Sparkles className="h-4 w-4 text-white" />
                 </div>
-                <DialogTitle className="text-lg font-display font-bold text-foreground">Get Your SketchUp Course</DialogTitle>
+                <DialogTitle className="text-lg  font-bold text-foreground">Get Your SketchUp Course</DialogTitle>
               </div>
               <p className="text-sm text-muted-foreground">Join 12,347 students — just ₹99, one-time payment</p>
             </DialogHeader>

@@ -314,33 +314,27 @@
     transform: translateY(-2px);
   }
 
-  /* ─── Green gradient text ─── */
+  /* ??? Green gradient text ??? */
   .text-green-gradient {
-    background: linear-gradient(135deg, hsl(152, 56%, 45%), hsl(152, 56%, 32%));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--d-primary);
   }
 
-  /* Legacy gold gradient → now green */
+  /* Legacy gold gradient ? now green */
   .text-gold-gradient {
-    background: linear-gradient(135deg, hsl(152, 56%, 45%), hsl(152, 56%, 32%));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--d-primary);
   }
 
-  /* ─── Premium CTA button ─── */
   .btn-primary {
-    background: linear-gradient(135deg, hsl(152, 56%, 42%) 0%, hsl(152, 56%, 32%) 100%);
-    color: white;
-    box-shadow: 0 4px 20px hsl(152 56% 40% / 0.3), inset 0 1px 0 hsl(152 56% 65% / 0.2);
+    background: var(--d-primary);
+    color: var(--d-primary-foreground);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.1);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .btn-primary:hover {
-    box-shadow: 0 8px 32px hsl(152 56% 40% / 0.45), inset 0 1px 0 hsl(152 56% 65% / 0.2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
     transform: translateY(-2px);
+    opacity: 0.9;
   }
 
   .btn-primary:active {
@@ -349,15 +343,16 @@
 
   /* Legacy btn-gold → now green */
   .btn-gold {
-    background: linear-gradient(135deg, hsl(152, 56%, 42%) 0%, hsl(152, 56%, 32%) 100%);
-    color: white;
-    box-shadow: 0 4px 20px hsl(152 56% 40% / 0.3), inset 0 1px 0 hsl(152 56% 65% / 0.2);
+    background: var(--d-primary);
+    color: var(--d-primary-foreground);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.1);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .btn-gold:hover {
-    box-shadow: 0 8px 32px hsl(152 56% 40% / 0.45), inset 0 1px 0 hsl(152 56% 65% / 0.2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
     transform: translateY(-2px);
+    opacity: 0.9;
   }
 
   .btn-gold:active {
@@ -377,21 +372,21 @@
     transform: translateY(-2px);
   }
 
-  /* ─── Shadow utilities ─── */
+  /* ??? Shadow utilities ??? */
   .shadow-green {
-    box-shadow: 0 4px 20px hsl(152 56% 40% / 0.25);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   }
 
   .shadow-green-lg {
-    box-shadow: 0 8px 40px hsl(152 56% 40% / 0.35);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
   }
 
   .shadow-gold-lg {
-    box-shadow: 0 8px 40px hsl(152 56% 40% / 0.35);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
   }
 
   .shadow-gold {
-    box-shadow: 0 4px 20px hsl(152 56% 40% / 0.25);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   }
 
   .shadow-soft {
@@ -403,7 +398,7 @@
   }
 
   .shadow-glow {
-    box-shadow: 0 0 0 3px hsl(152 56% 40% / 0.1), 0 4px 12px hsl(152 56% 40% / 0.15);
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.1);
   }
 
   /* ─── Scroll fade-in ─── */
@@ -437,22 +432,19 @@
     box-shadow: 0 20px 50px hsl(152 56% 40% / 0.12);
   }
 
-  /* ─── Section label ─── */
-  .section-label {
-    @apply text-[10px] font-black tracking-[0.2em] uppercase text-accent;
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
+  /* ??? Label accents ??? */
+  .label-accent {
+    @apply text-[10px] font-black tracking-[0.2em] uppercase text-accent font-sans;
   }
 
-  /* ─── Section heading ─── */
+  /* ??? Section heading ??? */
   .section-heading {
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
-    @apply font-bold tracking-tight text-foreground;
+    @apply font-bold tracking-tight text-foreground font-sans;
   }
 
-  /* ─── Serif accent ─── */
+  /* ??? Serif accent ??? */
   .serif-accent {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
+    @apply font-sans italic font-bold;
   }
 
   /* ─── CTA glow pulse — subtle ─── */
@@ -464,11 +456,11 @@
 
     0%,
     100% {
-      box-shadow: 0 4px 20px hsl(152 56% 40% / 0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
     50% {
-      box-shadow: 0 8px 36px hsl(152 56% 40% / 0.5);
+      box-shadow: 0 8px 36px rgba(0,0,0,0.2);
     }
   }
 
@@ -486,27 +478,27 @@
     0%,
     100% {
       transform: scale(1);
-      box-shadow: 0 4px 20px hsl(152 56% 40% / 0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
     50% {
       transform: scale(1.015);
-      box-shadow: 0 8px 36px hsl(152 56% 40% / 0.45);
+      box-shadow: 0 8px 36px rgba(0,0,0,0.2);
     }
   }
 
   /* ─── Premium input ─── */
   .premium-input {
-    @apply w-full rounded-xl border border-border bg-background px-4 text-[14px] font-medium text-black;
+    @apply w-full rounded-xl border border-border bg-background px-4 text-[14px] font-medium text-foreground;
     height: 54px;
-    box-shadow: inset 0 1px 2px hsl(160 10% 6% / 0.03);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
     transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   .premium-input:focus {
     outline: none;
-    border-color: hsl(152, 56%, 40%);
-    box-shadow: 0 0 0 4px hsl(152 56% 40% / 0.08), inset 0 1px 2px hsl(160 10% 6% / 0.03);
+    border-color: var(--d-primary);
+    box-shadow: 0 0 0 4px rgba(0,0,0,0.05), inset 0 1px 2px rgba(0,0,0,0.05);
   }
 
   /* Floating label specific padding */
@@ -538,7 +530,7 @@
     position: absolute;
     inset: -1px;
     border-radius: inherit;
-    background: linear-gradient(135deg, hsl(152, 56%, 40% / 0.3), transparent);
+    background: linear-gradient(135deg, rgba(0,0,0,0.1), transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;

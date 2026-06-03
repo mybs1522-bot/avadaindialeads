@@ -231,18 +231,18 @@ export function EnrollmentForm() {
 
       <motion.div variants={itemVariants} className="pt-4">
         <div className="mb-3 flex justify-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200/70 bg-emerald-50/70 px-3 py-1.5 text-[11px] font-semibold text-emerald-700">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-accent/10 px-3 py-1.5 text-[11px] font-semibold text-primary">
             <span>Offer closing in</span>
-            <span className="font-black tabular-nums text-emerald-800">{formatInlineTimer(timeLeft)}</span>
+            <span className="font-black tabular-nums text-primary">{formatInlineTimer(timeLeft)}</span>
           </div>
         </div>
         {/* Form Submission Button */}
         <Button
           type="submit"
           disabled={loading}
-          className="w-full h-14 rounded-xl text-[15px] font-bold text-white shadow-lift hover:shadow-green-lg transition-all duration-300 relative overflow-hidden group border-0"
+          className="w-full h-14 rounded-xl text-[15px] font-bold text-white shadow-lift hover:shadow-lg transition-all duration-300 relative overflow-hidden group border-0"
           style={{
-            background: 'linear-gradient(135deg, hsl(152, 56%, 40%) 0%, hsl(152, 60%, 30%) 100%)',
+            background: 'linear-gradient(135deg, var(--d-primary) 0%, hsl(152, 60%, 30%) 100%)',
           }}
         >
           <span className="relative z-10 flex items-center justify-center gap-2">

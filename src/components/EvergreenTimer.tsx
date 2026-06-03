@@ -27,7 +27,7 @@ function getTimeParts(s: number) {
 function Digit({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <span className="font-display font-bold text-foreground text-sm tabular-nums">{value}</span>
+      <span className=" font-bold text-foreground text-sm tabular-nums">{value}</span>
       <span className="text-[7px] uppercase tracking-wider text-muted-foreground/50 font-semibold">{label}</span>
     </div>
   );
@@ -48,7 +48,7 @@ export function EvergreenTimer({ onCtaClick }: { onCtaClick?: () => void }) {
       <div className="pointer-events-auto mx-auto max-w-md px-4 pb-4">
         <button
           onClick={onCtaClick}
-          className="w-full flex items-center justify-center gap-3 py-3 px-5 rounded-xl bg-foreground text-white shadow-lift hover:shadow-green-lg transition-all duration-300 group"
+          className="w-full flex items-center justify-center gap-3 py-3 px-5 rounded-xl bg-foreground text-white shadow-lift hover:shadow-lg transition-all duration-300 group"
         >
           <Clock className="h-3.5 w-3.5 text-white/50 flex-shrink-0" />
           <span className="text-[10px] font-medium text-white/50">Offer ends in</span>
