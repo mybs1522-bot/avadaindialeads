@@ -40,7 +40,7 @@ export async function sendEmailOtpAction(email: string) {
     const resend = new Resend(resendApiKey);
     
     const { error: resendError } = await resend.emails.send({
-      from: "Avada India <noreply@avadaindia.in>", // You should verify a domain in Resend
+      from: "onboarding@resend.dev", // Using Resend's testing email to avoid domain verification errors
       to: [email.trim().toLowerCase()],
       subject: "Your Verification Code - Avada India",
       html: `
@@ -57,7 +57,7 @@ export async function sendEmailOtpAction(email: string) {
 
     if (resendError) {
       console.error("Resend API Error:", resendError);
-      return { success: false, error: "Failed to send verification email" };
+      return { success: false, error: resendError.message || "Failed to send verification email" };
     }
 
     return { success: true, message: "OTP sent successfully" };
