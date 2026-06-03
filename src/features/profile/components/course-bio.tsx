@@ -25,6 +25,17 @@ export function CourseBio() {
         If you have a passion to learn and a laptop, we will teach you in the <span className="text-foreground font-bold border-b border-border">next 15 days</span>.
       </p>
 
+      {/* Secondary Headline (Push to join) */}
+      <div className="mt-8 mb-1 flex flex-col items-center">
+        <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground leading-tight">
+          We will teach you to Design <br className="hidden sm:block" />
+          <span className="border border-border bg-transparent px-2 py-0.5 rounded-lg shadow-sm">Homes</span>, Offices <span className="font-light text-muted-foreground">&</span> Villas
+        </h3>
+        <p className="text-base sm:text-lg font-bold text-emerald-600 dark:text-emerald-400 mt-3 animate-pulse">
+          Join the waitlist today. Apply now below! 👇
+        </p>
+      </div>
+
       {/* Video Embed */}
       <div className="w-full max-w-2xl mt-6 relative aspect-video rounded-xl overflow-hidden shadow-lg border border-border">
         <iframe 
