@@ -67,7 +67,7 @@ export function CoursesGrid() {
       </div>
       <Panel>
         <PanelHeader className="justify-center text-center">
-          <PanelTitle>Our Courses</PanelTitle>
+          <PanelTitle>9 Courses, Free classes for students.</PanelTitle>
         </PanelHeader>
         <PanelContent>
           <div className="grid grid-cols-3 gap-3 sm:grid-cols-4">
