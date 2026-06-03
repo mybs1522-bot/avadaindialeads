@@ -11,18 +11,18 @@ export function CourseBio() {
 
       {/* Subtext 1 */}
       <p className="text-sm sm:text-base font-medium text-muted-foreground max-w-xl">
-        Start charging <span className="text-foreground border-b border-border pb-px">₹50,000–₹1,00,000</span> for designing and rendering.
+        We will teach you Interior & Exterior Design
       </p>
 
       {/* Main Headline */}
-      <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-tight mt-1">
-        Learn to Design <br className="hidden sm:block" />
-        <span className="border border-border bg-transparent px-2 py-0.5 rounded-lg shadow-sm">Homes</span>, Offices <span className="font-light text-muted-foreground">&</span> Villas
+      <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-tight mt-1 mb-1">
+        Do you Want to <br className="hidden sm:block" />
+        <span className="border border-border bg-transparent px-3 py-1 rounded-xl shadow-sm">Learn?</span>
       </h2>
 
-      {/* Italic text */}
-      <p className="text-lg sm:text-xl italic text-muted-foreground font-serif mt-1">
-        and show real 3D to clients.
+      {/* Paragraph text */}
+      <p className="text-lg sm:text-xl text-muted-foreground font-medium mt-3 px-4 max-w-2xl">
+        If you have a passion to learn and a laptop, we will teach you in the <span className="text-foreground font-bold border-b border-border">next 15 days</span>.
       </p>
 
       {/* Video Embed */}
